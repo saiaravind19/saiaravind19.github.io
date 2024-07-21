@@ -1,0 +1,13 @@
+github_users:
+  - plusk01
+
+github_repos:
+  - mit-acl/clipper
+  # - mit-acl/mixer
+  - plusk01/Anticipated-VINS-Mono
+  - plusk01/nonlinearquad
+  - plusk01/se3quad
+  - plusk01/pointcloud-plane-segmentation
+  - plusk01/turtlebot-eif-localization
+  - plusk01/teensyimu
+  - plusk01/adaptive-gyro-filtering

@@ -1,0 +1,115 @@
+# - title: General Information
+#   type: map
+#   contents:
+#     - name: Full Name
+#       value: Albert Einstein
+#     - name: Date of Birth
+#       value: 14th March 1879
+#     - name: Languages
+#       value: English, German
+
+- title: Education
+  type: time_table
+  contents:
+    - title: PhD, Autonomous Systems, Aeronautical/Astronautical Engineering
+      institution: Massachusetts Institute of Technology
+      year: 2023
+      description:
+        - >
+          Thesis: Algorithms and Representations for Data Association in Geometric Robotic Perception
+        - >
+          Advisor: Prof. Jonathan P. How
+    - title: M.S., Electrical and Computer Engineering
+      institution: Brigham Young University
+      year: 2018
+      description:
+        - >
+          Thesis: Vision-based Emergency Landing for Small Unmanned Aircraft Systems
+        - >
+          Advisor: Prof. Randal W. Beard
+    - title: B.S., Electrical Engineering
+      institution: Brigham Young University
+      year: 2016
+      description:
+        - >
+          Relevant Courses: Signals & Systems, Wireless/RF Comms, Electricity and Magnetism, Control Theory, Computer Architecture, Embedded Systems
+
+- title: Experience
+  type: time_table
+  contents:
+    - title: Graduate Research Assistant
+      institution: Aerospace Controls Lab, MIT
+      year: 2018 - 2023
+      description:
+        - >
+          Research in robust geometric perception and data association techniques for robotics. Developing algorithms
+          (C++/Python) with applications to extrinsic sensor calibration, localization, mapping, loop closure and place
+          recognition, and multiple object tracking. Algorithms demonstrated on heterogeneous teams of robots
+          (multirotor and ground robot). Significant flight control development for multirotor and ground robot teams
+          via on-board control and estimation. Open source contributor.
+
+    - title: Graduate Research Assistant
+      institution: Multiple Agent Intelligent Coordination and Control Lab, BYU
+      year: 2016 - 2018
+      description:
+        - >
+          Developed vision-based multiple object tracking algorithms (C++/Python) to detect moving objects in potential
+          landing sites for emergency-landing of multirotors. Provided extensive hardware demonstrations and field
+          tests of the complete system. Contributed to design and implementation of in-house research autopilot.
+
+    - title: Embedded Engineering Intern
+      institution: LGS Innovations
+      year: 2015
+      description:
+        - >
+          Designed PCBs and configured device drivers, kernel modules to enable ethernet connectivity on Intel Edison
+          embedded Linux device. Created NodeJS web applications to control input/output of embedded hardware.
+
+    - title: Course Instructor
+      institution: Coding Campus
+      year: 2014 - 2015
+      description:
+        - >
+          Worked directly with clients to develop web applications using Python, JavaScript, HTML/CSS, and SQL.
+
+    - title: Software Developer
+      institution: Verisage
+      year: 2013 - 2015
+      description:
+        - >
+          Created and taught curriculum for introductory and intermediary programming classes, mentored students.
+
+# - title: Open Source Projects
+#   type: time_table
+#   contents:
+#     - title: <a href="https://github.com/alshedivat/al-folio">al-folio</a>
+#       year: 2015-now
+#       description: A beautiful, simple, clean, and responsive Jekyll theme for academics.
+
+# - title: Honors and Awards
+#   type: time_table
+#   contents:
+#     - year: 1921
+#       items: 
+#         - Nobel Prize in Physics 
+#         - Matteucci Medal
+#     - year: 2029
+#       items: 
+#         - Max Planck Medal
+
+# - title: Academic Interests
+#   type: nested_list
+#   contents:
+#     - title: Topic 1.
+#       items: 
+#         - Description 1.
+#         - Description 2.
+#     - title: Topic 2.
+#       items:
+#         - Description 1.
+#         - Description 2.
+
+# - title: Other Interests
+#   type: list
+#   contents:
+#     - <u>Hobbies:</u> Hobby 1, Hobby 2, etc.
