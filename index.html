@@ -1,0 +1,998 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sai Aravind CH — Robotics Software Engineer</title>
+  <meta name="description" content="Robotics Software Engineer specializing in distributed systems, autonomous robots, swarm intelligence, and ROS2." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <style>
+    /* ─── Reset & Base ─────────────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:        #0d0f14;
+      --bg2:       #13161e;
+      --bg3:       #1a1e2a;
+      --border:    #252a38;
+      --accent:    #4f8ef7;
+      --accent2:   #7c5cbf;
+      --green:     #3ecf8e;
+      --text:      #e2e8f0;
+      --muted:     #8892a4;
+      --card:      #161b27;
+      --radius:    12px;
+      --transition: 0.25s ease;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Inter', sans-serif;
+      font-size: 16px;
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+
+    a { color: var(--accent); text-decoration: none; transition: color var(--transition); }
+    a:hover { color: #7ab0ff; }
+
+    /* ─── Nav ───────────────────────────────────────────────────── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 2rem;
+      height: 60px;
+      background: rgba(13, 15, 20, 0.85);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav-logo {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 1rem;
+      font-weight: 500;
+      color: var(--accent);
+    }
+
+    .nav-links {
+      display: flex; gap: 2rem; list-style: none;
+    }
+
+    .nav-links a {
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: var(--muted);
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      transition: color var(--transition);
+    }
+
+    .nav-links a:hover { color: var(--text); }
+
+    .nav-cta {
+      background: var(--accent);
+      color: #fff !important;
+      padding: 0.4rem 1.1rem;
+      border-radius: 6px;
+      font-size: 0.8rem !important;
+      font-weight: 600 !important;
+    }
+
+    .nav-cta:hover { background: #7ab0ff; color: #fff !important; }
+
+    /* ─── Hero ──────────────────────────────────────────────────── */
+    #hero {
+      min-height: 100vh;
+      display: flex; align-items: center;
+      padding: 8rem 2rem 4rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-grid {
+      position: absolute; inset: 0; z-index: 0;
+      background-image:
+        linear-gradient(rgba(79,142,247,0.06) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(79,142,247,0.06) 1px, transparent 1px);
+      background-size: 48px 48px;
+      mask-image: radial-gradient(ellipse 80% 60% at 50% 40%, black 30%, transparent 100%);
+    }
+
+    .hero-glow {
+      position: absolute; z-index: 0;
+      width: 600px; height: 600px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(79,142,247,0.12) 0%, transparent 70%);
+      top: 50%; left: 50%; transform: translate(-50%, -55%);
+      pointer-events: none;
+    }
+
+    .hero-content {
+      position: relative; z-index: 1;
+      max-width: 860px; margin: 0 auto;
+    }
+
+    .hero-badge {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      background: rgba(62,207,142,0.1);
+      border: 1px solid rgba(62,207,142,0.25);
+      color: var(--green);
+      font-size: 0.78rem; font-weight: 600;
+      padding: 0.3rem 0.9rem; border-radius: 100px;
+      margin-bottom: 1.5rem;
+      letter-spacing: 0.05em;
+    }
+
+    .hero-badge::before {
+      content: '';
+      width: 7px; height: 7px; border-radius: 50%;
+      background: var(--green);
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.3; }
+    }
+
+    .hero-title {
+      font-size: clamp(2.6rem, 6vw, 4.2rem);
+      font-weight: 700;
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+      margin-bottom: 1rem;
+    }
+
+    .hero-title span {
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .hero-sub {
+      font-size: 1.15rem;
+      color: var(--muted);
+      max-width: 580px;
+      margin-bottom: 2.5rem;
+    }
+
+    .hero-btns {
+      display: flex; flex-wrap: wrap; gap: 1rem;
+    }
+
+    .btn {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      padding: 0.75rem 1.6rem;
+      border-radius: 8px;
+      font-size: 0.9rem; font-weight: 600;
+      transition: all var(--transition);
+      cursor: pointer;
+    }
+
+    .btn-primary {
+      background: var(--accent);
+      color: #fff;
+    }
+
+    .btn-primary:hover {
+      background: #7ab0ff;
+      color: #fff;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(79,142,247,0.3);
+    }
+
+    .btn-outline {
+      border: 1px solid var(--border);
+      color: var(--text);
+      background: transparent;
+    }
+
+    .btn-outline:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+      transform: translateY(-2px);
+    }
+
+    /* ─── Section Shared ─────────────────────────────────────────── */
+    section { padding: 6rem 2rem; }
+
+    .container { max-width: 1000px; margin: 0 auto; }
+
+    .section-label {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.75rem;
+      color: var(--accent);
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      margin-bottom: 0.5rem;
+    }
+
+    .section-title {
+      font-size: clamp(1.6rem, 3vw, 2.2rem);
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      margin-bottom: 0.5rem;
+    }
+
+    .section-divider {
+      width: 48px; height: 3px;
+      background: linear-gradient(90deg, var(--accent), var(--accent2));
+      border-radius: 2px;
+      margin-bottom: 3rem;
+    }
+
+    /* ─── Skills ─────────────────────────────────────────────────── */
+    #skills { background: var(--bg2); }
+
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1.25rem;
+    }
+
+    .skill-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.5rem;
+      transition: border-color var(--transition), transform var(--transition);
+    }
+
+    .skill-card:hover {
+      border-color: var(--accent);
+      transform: translateY(-3px);
+    }
+
+    .skill-card h4 {
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--accent);
+      margin-bottom: 0.75rem;
+    }
+
+    .skill-tags {
+      display: flex; flex-wrap: wrap; gap: 0.4rem;
+    }
+
+    .tag {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.72rem;
+      background: rgba(79,142,247,0.1);
+      border: 1px solid rgba(79,142,247,0.2);
+      color: var(--accent);
+      padding: 0.2rem 0.6rem;
+      border-radius: 4px;
+    }
+
+    /* ─── Experience ─────────────────────────────────────────────── */
+    .timeline { position: relative; }
+
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 0; top: 0; bottom: 0;
+      width: 2px;
+      background: linear-gradient(to bottom, var(--accent), var(--accent2), transparent);
+      border-radius: 1px;
+    }
+
+    .timeline-item {
+      position: relative;
+      padding-left: 2.5rem;
+      margin-bottom: 3rem;
+    }
+
+    .timeline-dot {
+      position: absolute;
+      left: -5px; top: 6px;
+      width: 12px; height: 12px;
+      border-radius: 50%;
+      background: var(--accent);
+      border: 2px solid var(--bg);
+      box-shadow: 0 0 0 3px rgba(79,142,247,0.2);
+    }
+
+    .timeline-header {
+      display: flex; flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 0.5rem;
+      margin-bottom: 0.25rem;
+    }
+
+    .timeline-company {
+      font-size: 1.1rem; font-weight: 700;
+    }
+
+    .timeline-date {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.75rem;
+      color: var(--muted);
+      white-space: nowrap;
+    }
+
+    .timeline-role {
+      font-size: 0.85rem;
+      color: var(--accent);
+      font-weight: 500;
+      margin-bottom: 0.75rem;
+    }
+
+    .timeline-location {
+      font-size: 0.8rem;
+      color: var(--muted);
+      margin-bottom: 0.75rem;
+    }
+
+    .timeline-bullets {
+      list-style: none;
+      display: flex; flex-direction: column; gap: 0.4rem;
+    }
+
+    .timeline-bullets li {
+      font-size: 0.88rem;
+      color: var(--muted);
+      padding-left: 1.2rem;
+      position: relative;
+    }
+
+    .timeline-bullets li::before {
+      content: '▸';
+      position: absolute; left: 0;
+      color: var(--accent);
+      font-size: 0.75rem;
+    }
+
+    /* ─── Projects ───────────────────────────────────────────────── */
+    #projects { background: var(--bg2); }
+
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .project-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      overflow: hidden;
+      display: flex; flex-direction: column;
+      transition: border-color var(--transition), transform var(--transition), box-shadow var(--transition);
+    }
+
+    .project-card:hover {
+      border-color: var(--accent);
+      transform: translateY(-4px);
+      box-shadow: 0 12px 32px rgba(79,142,247,0.1);
+    }
+
+    .project-video {
+      width: 100%;
+      aspect-ratio: 16/9;
+      background: #000;
+    }
+
+    .project-video iframe {
+      width: 100%; height: 100%;
+      border: none;
+    }
+
+    .project-body {
+      padding: 1.25rem;
+      flex: 1; display: flex; flex-direction: column;
+    }
+
+    .project-title {
+      font-size: 1rem; font-weight: 700;
+      margin-bottom: 0.4rem;
+    }
+
+    .project-desc {
+      font-size: 0.84rem;
+      color: var(--muted);
+      flex: 1;
+      margin-bottom: 1rem;
+    }
+
+    .project-tags {
+      display: flex; flex-wrap: wrap; gap: 0.4rem;
+      margin-bottom: 1rem;
+    }
+
+    .project-links {
+      display: flex; gap: 0.75rem;
+    }
+
+    .proj-link {
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--accent);
+      display: flex; align-items: center; gap: 0.3rem;
+    }
+
+    .proj-link:hover { color: #7ab0ff; }
+
+    /* ─── Blog ───────────────────────────────────────────────────── */
+    .blog-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.25rem;
+    }
+
+    .blog-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.5rem;
+      transition: border-color var(--transition), transform var(--transition);
+    }
+
+    .blog-card:hover {
+      border-color: var(--accent);
+      transform: translateY(-3px);
+    }
+
+    .blog-card-label {
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--accent);
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+    }
+
+    .blog-card h3 {
+      font-size: 0.95rem; font-weight: 600;
+      margin-bottom: 0.5rem;
+      line-height: 1.4;
+    }
+
+    .blog-card p {
+      font-size: 0.82rem;
+      color: var(--muted);
+    }
+
+    /* ─── Achievements ───────────────────────────────────────────── */
+    #achievements { background: var(--bg2); }
+
+    .achievements-list {
+      display: flex; flex-direction: column; gap: 1rem;
+    }
+
+    .achievement-item {
+      display: flex; align-items: flex-start; gap: 1rem;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.25rem 1.5rem;
+      transition: border-color var(--transition);
+    }
+
+    .achievement-item:hover { border-color: var(--green); }
+
+    .achievement-icon {
+      font-size: 1.4rem;
+      flex-shrink: 0;
+    }
+
+    .achievement-item p {
+      font-size: 0.88rem;
+      color: var(--muted);
+    }
+
+    .achievement-item strong {
+      color: var(--text);
+    }
+
+    /* ─── Contact ────────────────────────────────────────────────── */
+    #contact {
+      text-align: center;
+    }
+
+    #contact .section-divider { margin-left: auto; margin-right: auto; }
+
+    .contact-desc {
+      color: var(--muted);
+      max-width: 480px;
+      margin: 0 auto 2.5rem;
+      font-size: 0.95rem;
+    }
+
+    .contact-links {
+      display: flex; flex-wrap: wrap; justify-content: center; gap: 1rem;
+    }
+
+    .contact-link {
+      display: flex; align-items: center; gap: 0.6rem;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 0.75rem 1.4rem;
+      font-size: 0.88rem; font-weight: 500;
+      color: var(--text);
+      transition: all var(--transition);
+    }
+
+    .contact-link:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+      transform: translateY(-2px);
+    }
+
+    .contact-link svg {
+      width: 18px; height: 18px;
+    }
+
+    /* ─── Footer ─────────────────────────────────────────────────── */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 2rem;
+      text-align: center;
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+
+    /* ─── Hamburger (mobile) ─────────────────────────────────────── */
+    .hamburger {
+      display: none;
+      flex-direction: column; gap: 5px;
+      cursor: pointer; background: none; border: none; padding: 4px;
+    }
+
+    .hamburger span {
+      display: block; width: 22px; height: 2px;
+      background: var(--text); border-radius: 1px;
+      transition: all 0.3s;
+    }
+
+    /* ─── Responsive ─────────────────────────────────────────────── */
+    @media (max-width: 640px) {
+      .nav-links { display: none; flex-direction: column; position: absolute;
+        top: 60px; left: 0; right: 0; background: var(--bg2);
+        border-bottom: 1px solid var(--border); padding: 1.5rem 2rem; gap: 1.25rem; }
+      .nav-links.open { display: flex; }
+      .hamburger { display: flex; }
+      .timeline::before { left: 0; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ────────────────────────── NAV ────────────────────────────── -->
+<nav>
+  <div class="nav-logo">sai_aravind.ch</div>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#blog">Blog</a></li>
+    <li><a href="#achievements">Achievements</a></li>
+    <li><a href="#contact" class="nav-cta">Contact</a></li>
+  </ul>
+  <button class="hamburger" onclick="document.getElementById('navLinks').classList.toggle('open')" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- ────────────────────────── HERO ───────────────────────────── -->
+<section id="hero">
+  <div class="hero-grid"></div>
+  <div class="hero-glow"></div>
+  <div class="hero-content">
+    <div class="hero-badge">Available for opportunities</div>
+    <h1 class="hero-title">
+      Sai Aravind CH<br />
+      <span>Robotics Software Engineer</span>
+    </h1>
+    <p class="hero-sub">
+      Building intelligent, distributed autonomous systems — from decentralized AMR fleets
+      to swarm drones. Specializing in ROS2, motion planning, and real-time embedded software.
+    </p>
+    <div class="hero-btns">
+      <a href="#projects" class="btn btn-primary">View Projects ↓</a>
+      <a href="#contact" class="btn btn-outline">Get in Touch</a>
+    </div>
+  </div>
+</section>
+
+<!-- ────────────────────────── SKILLS ─────────────────────────── -->
+<section id="skills">
+  <div class="container">
+    <div class="section-label">// expertise</div>
+    <h2 class="section-title">Technical Skills</h2>
+    <div class="section-divider"></div>
+    <div class="skills-grid">
+      <div class="skill-card">
+        <h4>Languages</h4>
+        <div class="skill-tags">
+          <span class="tag">C++</span>
+          <span class="tag">Python</span>
+        </div>
+      </div>
+      <div class="skill-card">
+        <h4>Frameworks</h4>
+        <div class="skill-tags">
+          <span class="tag">ROS2</span>
+          <span class="tag">ROS</span>
+          <span class="tag">PX4</span>
+          <span class="tag">Zenoh</span>
+          <span class="tag">DDS</span>
+        </div>
+      </div>
+      <div class="skill-card">
+        <h4>Simulators</h4>
+        <div class="skill-tags">
+          <span class="tag">Gazebo</span>
+          <span class="tag">CoppeliaSim</span>
+        </div>
+      </div>
+      <div class="skill-card">
+        <h4>Other Skills</h4>
+        <div class="skill-tags">
+          <span class="tag">Motion Planning</span>
+          <span class="tag">MAVLink</span>
+          <span class="tag">Docker</span>
+          <span class="tag">Git</span>
+          <span class="tag">IoT</span>
+          <span class="tag">REST APIs</span>
+          <span class="tag">gRPC</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ────────────────────────── EXPERIENCE ─────────────────────── -->
+<section id="experience">
+  <div class="container">
+    <div class="section-label">// career</div>
+    <h2 class="section-title">Experience</h2>
+    <div class="section-divider"></div>
+    <div class="timeline">
+
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-header">
+          <span class="timeline-company">LexxPluss</span>
+          <span class="timeline-date">Oct 2025 – Present</span>
+        </div>
+        <div class="timeline-role">Robotics Software Engineer — Distributed Systems</div>
+        <div class="timeline-location">📍 Kawasaki, Japan</div>
+        <ul class="timeline-bullets">
+          <li>Developing a fully decentralized AMR fleet using CRDTs for message syncing and reward-based task allocation, eliminating the need for a central fleet manager.</li>
+        </ul>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-header">
+          <span class="timeline-company">NewSpace Research and Technologies</span>
+          <span class="timeline-date">Aug 2023 – Oct 2025</span>
+        </div>
+        <div class="timeline-role">Robotics Software Engineer</div>
+        <div class="timeline-location">📍 Bangalore, India</div>
+        <ul class="timeline-bullets">
+          <li>Implemented RVO-based collision avoidance for a heterogeneous swarm of fixed-wing aircraft and multi-copters.</li>
+          <li>Contributed to Collaborative Combat Aircraft (CCA) development by integrating an in-house flight dynamics model using JSBSim.</li>
+          <li>Participated in AERO India 2025, showcasing company products and discussing emerging technologies.</li>
+          <li>Developed Gazebo terrain generator and custom plugins for SITL testing — featured on the official Gazebo website.</li>
+          <li>Implemented LCM-based drone-to-drone communication, reducing bandwidth usage by 60%.</li>
+          <li>Built a comprehensive logging framework, facilitating faster debugging and crash analysis.</li>
+        </ul>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-header">
+          <span class="timeline-company">Unbox Robotics</span>
+          <span class="timeline-date">Jun 2022 – Jul 2023</span>
+        </div>
+        <div class="timeline-role">Robotics Software Engineer</div>
+        <div class="timeline-location">📍 Pune, India</div>
+        <ul class="timeline-bullets">
+          <li>Designed a state-machine-based task manager with priority-based robot allocation and predictive battery scheduler, increasing system uptime.</li>
+          <li>Built a scalable error-handling pipeline across robot types, reducing development overhead.</li>
+          <li>Developed an OTA update module — achieved 86% reduction in firmware update process time.</li>
+          <li>Led development of a configuration manager that cut system deployment time by 50%.</li>
+        </ul>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-header">
+          <span class="timeline-company">Jay Robotix</span>
+          <span class="timeline-date">Jan 2021 – Jul 2021</span>
+        </div>
+        <div class="timeline-role">Robotics Research Intern</div>
+        <div class="timeline-location">📍 Hyderabad, India</div>
+        <ul class="timeline-bullets">
+          <li>Developed autonomous waypoint navigation stack with vision-based obstacle avoidance and socket-based base-station communication for UGVs.</li>
+        </ul>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-header">
+          <span class="timeline-company">IoT-UnifyAI Tech</span>
+          <span class="timeline-date">Oct 2020 – May 2021</span>
+        </div>
+        <div class="timeline-role">Robotics Intern</div>
+        <div class="timeline-location">📍 Remote</div>
+        <ul class="timeline-bullets">
+          <li>Built an autonomous UV sterilization robot on ESP32 with waypoint navigation, obstacle detection, and a web-based wireless control interface.</li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ────────────────────────── PROJECTS ───────────────────────── -->
+<section id="projects">
+  <div class="container">
+    <div class="section-label">// work</div>
+    <h2 class="section-title">Projects</h2>
+    <div class="section-divider"></div>
+    <div class="projects-grid">
+
+      <div class="project-card">
+        <div class="project-video">
+          <iframe src="https://www.youtube.com/embed/eQAzZhX_X8I?si=TXh9pjiVkXVm8A27"
+            title="AMR Sorting System" loading="lazy"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+        <div class="project-body">
+          <div class="project-title">AMR Sorting System</div>
+          <p class="project-desc">
+            Proof-of-concept fleet of Autonomous Mobile Robots for warehouse sorting. Features A* path planning, state-machine task manager, gRPC communication hub in Rust, and a simulated PLC delivery hub.
+          </p>
+          <div class="project-tags">
+            <span class="tag">ROS2</span><span class="tag">Rust</span><span class="tag">gRPC</span><span class="tag">Modbus</span><span class="tag">Python</span>
+          </div>
+          <div class="project-links">
+            <a class="proj-link" href="https://github.com/saiaravind19/sorting-system" target="_blank">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 21.795 24 17.295 24 12c0-6.63-5.37-12-12-12"/></svg>
+              GitHub
+            </a>
+            <a class="proj-link" href="https://technerd.readthedocs.io/en/latest/amr_sorting_system.html" target="_blank">↗ Blog</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div class="project-video">
+          <iframe src="https://www.youtube.com/embed/TsV34XBntnY?si=zK0TL7pK_RhsNW05"
+            title="Gazebo Terrain Generator" loading="lazy"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+        <div class="project-body">
+          <div class="project-title">Gazebo Terrain Generator</div>
+          <p class="project-desc">
+            Tool to generate 3D Gazebo worlds from real-world elevation and satellite data. Features interactive UI, configurable resolution, and one-click world generation. Featured on the official Gazebo website.
+          </p>
+          <div class="project-tags">
+            <span class="tag">Gazebo</span><span class="tag">Python</span><span class="tag">Mapbox</span><span class="tag">ROS2</span>
+          </div>
+          <div class="project-links">
+            <a class="proj-link" href="https://github.com/saiaravind19/gazebo_terrain_generator" target="_blank">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 21.795 24 17.295 24 12c0-6.63-5.37-12-12-12"/></svg>
+              GitHub
+            </a>
+            <a class="proj-link" href="https://technerd.readthedocs.io/en/latest/gazebo_terrain_generator.html" target="_blank">↗ Blog</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div class="project-video">
+          <iframe src="https://www.youtube.com/embed/LfRNsaYup2E?si=tMpY9x5MIGhloilo"
+            title="Wireless Motor Driver" loading="lazy"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+        <div class="project-body">
+          <div class="project-title">Wireless Motor Driver</div>
+          <p class="project-desc">
+            Plug-and-play wireless motor driver combining L298N and Wemos D1 Mini on a custom PCB. WiFi-controlled via a web UI — no code required. Designed for students and makers.
+          </p>
+          <div class="project-tags">
+            <span class="tag">ESP8266</span><span class="tag">KiCAD</span><span class="tag">IoT</span><span class="tag">Embedded</span>
+          </div>
+          <div class="project-links">
+            <a class="proj-link" href="https://github.com/saiaravind19/Wireless_Motor_Driver" target="_blank">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 21.795 24 17.295 24 12c0-6.63-5.37-12-12-12"/></svg>
+              GitHub
+            </a>
+            <a class="proj-link" href="https://technerd.readthedocs.io/en/latest/wireless_md.html" target="_blank">↗ Blog</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div class="project-video">
+          <iframe src="https://www.youtube.com/embed/8vxNBiGw6P0?si=H7ATdnG28POtGZlM"
+            title="UV Sterilization Robot" loading="lazy"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+        <div class="project-body">
+          <div class="project-title">UV Sterilization Robot</div>
+          <p class="project-desc">
+            Autonomous hospital UV sterilization robot built during COVID-19. ESP32 dual-core architecture with separate UI and control tasks, waypoint navigation, and obstacle avoidance.
+          </p>
+          <div class="project-tags">
+            <span class="tag">ESP32</span><span class="tag">ESP-IDF</span><span class="tag">CoppeliaSim</span><span class="tag">IoT</span>
+          </div>
+          <div class="project-links">
+            <a class="proj-link" href="https://github.com/tech-igloo/Semi-autonomous-UV-sterilization-bot" target="_blank">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 21.795 24 17.295 24 12c0-6.63-5.37-12-12-12"/></svg>
+              GitHub
+            </a>
+            <a class="proj-link" href="https://technerd.readthedocs.io/en/latest/uv_sterilisation.html" target="_blank">↗ Blog</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div class="project-body" style="padding-top:1.5rem;">
+          <div class="project-title">Drone Show using PX4</div>
+          <p class="project-desc">
+            Formation drone shows using PX4 flight control and image processing. Drones dynamically form shapes from input images. Decentralized collision avoidance via RVO with a Qt-based control UI.
+          </p>
+          <div class="project-tags">
+            <span class="tag">PX4</span><span class="tag">ROS</span><span class="tag">Gazebo</span><span class="tag">Qt</span><span class="tag">RVO</span>
+          </div>
+          <div class="project-links">
+            <a class="proj-link" href="https://technerd.readthedocs.io/en/latest/px4_sim.html" target="_blank">↗ Blog</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div class="project-body" style="padding-top:1.5rem;">
+          <div class="project-title">RHex Autonomous Robot</div>
+          <p class="project-desc">
+            Simulated RHex-inspired legged robot in Gazebo with a velocity-constrained local planner and PID-based actuator control for stable locomotion and navigation.
+          </p>
+          <div class="project-tags">
+            <span class="tag">ROS</span><span class="tag">Gazebo</span><span class="tag">Motion Planning</span><span class="tag">PID</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ────────────────────────── BLOG ───────────────────────────── -->
+<section id="blog">
+  <div class="container">
+    <div class="section-label">// writing</div>
+    <h2 class="section-title">Tech Blog</h2>
+    <div class="section-divider"></div>
+    <div class="blog-grid">
+      <a href="https://technerd.readthedocs.io/en/latest/amr_sorting_system.html" target="_blank" class="blog-card" style="display:block;">
+        <div class="blog-card-label">AMR · ROS2 · Rust</div>
+        <h3>AMR Sorting System</h3>
+        <p>Fleet navigation, gRPC architecture, A* path planning, and state machine task manager.</p>
+      </a>
+      <a href="https://technerd.readthedocs.io/en/latest/gazebo_terrain_generator.html" target="_blank" class="blog-card" style="display:block;">
+        <div class="blog-card-label">Gazebo · SITL · Tools</div>
+        <h3>Gazebo Terrain Generator</h3>
+        <p>Generating photorealistic 3D simulation worlds from real-world elevation data.</p>
+      </a>
+      <a href="https://technerd.readthedocs.io/en/latest/px4_sim.html" target="_blank" class="blog-card" style="display:block;">
+        <div class="blog-card-label">PX4 · SITL · Tutorials</div>
+        <h3>PX4 SITL Tutorials</h3>
+        <p>Setup, offboard control, velocity commands, and multi-drone simulation walkthroughs.</p>
+      </a>
+      <a href="https://technerd.readthedocs.io/en/latest/wireless_md.html" target="_blank" class="blog-card" style="display:block;">
+        <div class="blog-card-label">Embedded · IoT · PCB</div>
+        <h3>Wireless Motor Driver</h3>
+        <p>Designing a custom PCB motor driver with WiFi control using Wemos D1 Mini.</p>
+      </a>
+      <a href="https://technerd.readthedocs.io/en/latest/uv_sterilisation.html" target="_blank" class="blog-card" style="display:block;">
+        <div class="blog-card-label">ESP32 · Robotics · IoT</div>
+        <h3>UV Sterilization Robot</h3>
+        <p>Building an open-source autonomous sterilization robot from scratch during COVID-19.</p>
+      </a>
+      <a href="https://technerd.readthedocs.io/en/latest/" target="_blank" class="blog-card" style="display:block; border-color: var(--accent);">
+        <div class="blog-card-label">All Posts</div>
+        <h3>Read more on TechNerd →</h3>
+        <p>Full documentation, tutorials, and deep-dives on robotics engineering topics.</p>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ────────────────────────── ACHIEVEMENTS ───────────────────── -->
+<section id="achievements">
+  <div class="container">
+    <div class="section-label">// recognition</div>
+    <h2 class="section-title">Achievements & Research</h2>
+    <div class="section-divider"></div>
+    <div class="achievements-list">
+      <div class="achievement-item">
+        <div class="achievement-icon">🏆</div>
+        <div>
+          <strong>Gazebo Terrain Generator</strong>
+          <p>Featured on the official Gazebo website alongside notable community projects.</p>
+        </div>
+      </div>
+      <div class="achievement-item">
+        <div class="achievement-icon">🥇</div>
+        <div>
+          <strong>1st Place — Techfest IIT Bombay Covideate (2020–21)</strong>
+          <p>Won first place in a national-level innovation competition at IIT Bombay's flagship tech festival.</p>
+        </div>
+      </div>
+      <div class="achievement-item">
+        <div class="achievement-icon">🥉</div>
+        <div>
+          <strong>3rd Place — IISF 2020, Swasth Bharath Category</strong>
+          <p>Recognized at the India International Science Festival for health-tech innovation.</p>
+        </div>
+      </div>
+      <div class="achievement-item">
+        <div class="achievement-icon">📄</div>
+        <div>
+          <strong>IEEE Publication</strong>
+          <p>Automatic switching of water motor pump: A new approach.</p>
+        </div>
+      </div>
+      <div class="achievement-item">
+        <div class="achievement-icon">📄</div>
+        <div>
+          <strong>Begell House Publication</strong>
+          <p>Monitoring physiological data through wearable electronics.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ────────────────────────── CONTACT ────────────────────────── -->
+<section id="contact">
+  <div class="container">
+    <div class="section-label">// connect</div>
+    <h2 class="section-title">Get In Touch</h2>
+    <div class="section-divider"></div>
+    <p class="contact-desc">
+      Open to interesting robotics challenges, collaborations, and opportunities.
+      Reach out anytime!
+    </p>
+    <div class="contact-links">
+      <a class="contact-link" href="mailto:bplacearavind@gmail.com">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        bplacearavind@gmail.com
+      </a>
+      <a class="contact-link" href="https://www.linkedin.com/in/saiaravindch" target="_blank">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+        LinkedIn
+      </a>
+      <a class="contact-link" href="https://github.com/saiaravind19" target="_blank">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 21.795 24 17.295 24 12c0-6.63-5.37-12-12-12"/></svg>
+        GitHub
+      </a>
+      <a class="contact-link" href="https://technerd.readthedocs.io/en/latest/" target="_blank">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+        TechBlog
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ────────────────────────── FOOTER ─────────────────────────── -->
+<footer>
+  <p>Built with HTML & CSS · Sai Aravind CH © 2025</p>
+</footer>
+
+</body>
+</html>
