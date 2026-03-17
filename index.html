@@ -569,12 +569,10 @@
 
 <!-- ────────────────────────── NAV ────────────────────────────── -->
 <nav>
-  <div class="nav-logo">sai_aravind.ch</div>
   <ul class="nav-links" id="navLinks">
     <li><a href="#skills">Skills</a></li>
     <li><a href="#experience">Experience</a></li>
     <li><a href="#projects">Projects</a></li>
-    <li><a href="#blog">Blog</a></li>
     <li><a href="#achievements">Achievements</a></li>
     <li><a href="#contact" class="nav-cta">Contact</a></li>
   </ul>
@@ -607,7 +605,6 @@
 <!-- ────────────────────────── SKILLS ─────────────────────────── -->
 <section id="skills">
   <div class="container">
-    <div class="section-label">// expertise</div>
     <h2 class="section-title">Technical Skills</h2>
     <div class="section-divider"></div>
     <div class="skills-grid">
@@ -654,7 +651,7 @@
 <!-- ────────────────────────── EXPERIENCE ─────────────────────── -->
 <section id="experience">
   <div class="container">
-    <div class="section-label">// career</div>
+
     <h2 class="section-title">Experience</h2>
     <div class="section-divider"></div>
     <div class="timeline">
@@ -739,7 +736,7 @@
 <!-- ────────────────────────── PROJECTS ───────────────────────── -->
 <section id="projects">
   <div class="container">
-    <div class="section-label">// work</div>
+
     <h2 class="section-title">Projects</h2>
     <div class="section-divider"></div>
     <div class="projects-grid">
@@ -753,7 +750,7 @@
         <div class="project-body">
           <div class="project-title">AMR Sorting System</div>
           <p class="project-desc">
-            Proof-of-concept fleet of Autonomous Mobile Robots for warehouse sorting. Features A* path planning, state-machine task manager, gRPC communication hub in Rust, and a simulated PLC delivery hub.
+            A three-tier architecture for warehouse sorting: a ROS2 Fleet layer handling navigation, path planning, and task management across multiple robots; a Rust-based Communication Hub using gRPC/Modbus for status and messaging; and a Python Delivery Hub simulating a PLC with GUI-driven bin management. Uses A* path planning on a predefined map and a state machine task manager (with Behaviour Tree support for scaling).
           </p>
           <div class="project-tags">
             <span class="tag">ROS2</span><span class="tag">Rust</span><span class="tag">gRPC</span><span class="tag">Modbus</span><span class="tag">Python</span>
@@ -763,7 +760,6 @@
               <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 21.795 24 17.295 24 12c0-6.63-5.37-12-12-12"/></svg>
               GitHub
             </a>
-            <a class="proj-link" href="https://technerd.readthedocs.io/en/latest/amr_sorting_system.html" target="_blank">↗ Blog</a>
           </div>
         </div>
       </div>
@@ -777,7 +773,7 @@
         <div class="project-body">
           <div class="project-title">Gazebo Terrain Generator</div>
           <p class="project-desc">
-            Tool to generate 3D Gazebo worlds from real-world elevation and satellite data. Features interactive UI, configurable resolution, and one-click world generation. Featured on the official Gazebo website.
+            Search any location on Earth, draw a rectangular region of interest on an interactive map, place a spawn marker, and hit generate — the tool fetches real elevation (Mapbox DEM) and satellite imagery to produce a fully complete Gazebo SDF world. Configurable tile resolution and output paths via env vars. Featured on the official Gazebo website.
           </p>
           <div class="project-tags">
             <span class="tag">Gazebo</span><span class="tag">Python</span><span class="tag">Mapbox</span><span class="tag">ROS2</span>
@@ -787,7 +783,6 @@
               <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 21.795 24 17.295 24 12c0-6.63-5.37-12-12-12"/></svg>
               GitHub
             </a>
-            <a class="proj-link" href="https://technerd.readthedocs.io/en/latest/gazebo_terrain_generator.html" target="_blank">↗ Blog</a>
           </div>
         </div>
       </div>
@@ -801,7 +796,7 @@
         <div class="project-body">
           <div class="project-title">Wireless Motor Driver</div>
           <p class="project-desc">
-            Plug-and-play wireless motor driver combining L298N and Wemos D1 Mini on a custom PCB. WiFi-controlled via a web UI — no code required. Designed for students and makers.
+            Custom PCB (designed in KiCAD 6.0) combining the L298N dual full-bridge driver with a Wemos D1 Mini for built-in WiFi. Runs in AP mode — connect to its SSID and open <em>wirelessmd.local</em> to control motors wirelessly through a browser UI. 6–12V supply, 1.2A per channel, 500mA fuse protection. Can also be used as a conventional motor driver.
           </p>
           <div class="project-tags">
             <span class="tag">ESP8266</span><span class="tag">KiCAD</span><span class="tag">IoT</span><span class="tag">Embedded</span>
@@ -811,7 +806,6 @@
               <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 21.795 24 17.295 24 12c0-6.63-5.37-12-12-12"/></svg>
               GitHub
             </a>
-            <a class="proj-link" href="https://technerd.readthedocs.io/en/latest/wireless_md.html" target="_blank">↗ Blog</a>
           </div>
         </div>
       </div>
@@ -825,7 +819,7 @@
         <div class="project-body">
           <div class="project-title">UV Sterilization Robot</div>
           <p class="project-desc">
-            Autonomous hospital UV sterilization robot built during COVID-19. ESP32 dual-core architecture with separate UI and control tasks, waypoint navigation, and obstacle avoidance.
+            Open-source affordable robot for sterilizing hospital wards and ICUs with UV light, built during COVID-19. Uses ESP32's dual cores — one dedicated to the web UI, the other to navigation and obstacle avoidance. Simulated in CoppeliaSim (V-REP) before hardware deployment. Autonomous waypoint navigation with wireless control via a browser interface hosted on the ESP32.
           </p>
           <div class="project-tags">
             <span class="tag">ESP32</span><span class="tag">ESP-IDF</span><span class="tag">CoppeliaSim</span><span class="tag">IoT</span>
@@ -835,28 +829,94 @@
               <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 21.795 24 17.295 24 12c0-6.63-5.37-12-12-12"/></svg>
               GitHub
             </a>
-            <a class="proj-link" href="https://technerd.readthedocs.io/en/latest/uv_sterilisation.html" target="_blank">↗ Blog</a>
           </div>
         </div>
       </div>
 
       <div class="project-card">
-        <div class="project-body" style="padding-top:1.5rem;">
+        <div class="project-video">
+          <iframe src="https://www.youtube.com/embed/PH_vu_SqwpU"
+            title="Drone Show using PX4" loading="lazy"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+        <div class="project-body">
           <div class="project-title">Drone Show using PX4</div>
           <p class="project-desc">
-            Formation drone shows using PX4 flight control and image processing. Drones dynamically form shapes from input images. Decentralized collision avoidance via RVO with a Qt-based control UI.
+            Drones dynamically form shapes extracted from any input image using image processing techniques. PX4 handles flight control, RVO (Reciprocal Velocity Obstacles) provides decentralized collision avoidance so drones never cross paths during formation transitions, and a Qt UI lets you feed images and monitor the show in real time.
           </p>
           <div class="project-tags">
             <span class="tag">PX4</span><span class="tag">ROS</span><span class="tag">Gazebo</span><span class="tag">Qt</span><span class="tag">RVO</span>
           </div>
           <div class="project-links">
-            <a class="proj-link" href="https://technerd.readthedocs.io/en/latest/px4_sim.html" target="_blank">↗ Blog</a>
+            <a class="proj-link" href="https://github.com/saiaravind19/px4_drone_show" target="_blank">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 21.795 24 17.295 24 12c0-6.63-5.37-12-12-12"/></svg>
+              GitHub
+            </a>
+            <a class="proj-link" href="https://www.youtube.com/watch?v=n7WqN2YgBjs" target="_blank">▶ Demo 2</a>
           </div>
         </div>
       </div>
 
       <div class="project-card">
-        <div class="project-body" style="padding-top:1.5rem;">
+        <div class="project-video">
+          <img src="https://img-c.udemycdn.com/course/480x270/4051974_416f_2.jpg"
+            alt="ESP32: A Beginner's Guide to IoT and Electronics"
+            style="width:100%;height:100%;object-fit:cover;" loading="lazy" />
+        </div>
+        <div class="project-body">
+          <div class="project-title">ESP32: A Beginner's Guide to IoT & Electronics</div>
+          <p class="project-desc">
+            A comprehensive Udemy course covering ESP32 from scratch — GPIO manipulation, wireless (WiFi/BLE) and wired (I2C/SPI/UART) communication, and the basics of Real-Time Operating Systems (RTOS). Designed to get beginners building real IoT projects with no prior experience.
+          </p>
+          <div class="project-tags">
+            <span class="tag">ESP32</span><span class="tag">IoT</span><span class="tag">RTOS</span><span class="tag">Embedded</span><span class="tag">Udemy</span>
+          </div>
+          <div class="project-links">
+            <a class="proj-link" href="https://www.udemy.com/course/esp32-a-beginners-guide-to-iot-and-electronics/" target="_blank">↗ View Course</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div class="project-video">
+          <iframe src="https://www.youtube.com/embed/KmD6lZpNyyE"
+            title="Autonomous Waypoint Navigation for Drone" loading="lazy"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+        <div class="project-body">
+          <div class="project-title">Autonomous Waypoint Navigation for Drone</div>
+          <p class="project-desc">
+            PID-based control algorithm for goal tracking using WhyCon beacons for localization. Features a color-based priority system for intelligent goal point selection, simulated and tested in Gazebo.
+          </p>
+          <div class="project-tags">
+            <span class="tag">ROS</span><span class="tag">Gazebo</span><span class="tag">C++</span><span class="tag">Python</span><span class="tag">Image Processing</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div class="project-video">
+          <iframe src="https://drive.google.com/file/d/1Jh2vMTomD9LeHQwl-iS4BRojjhUx0ssN/preview"
+            title="Medical IoT Surveillance" loading="lazy" allowfullscreen></iframe>
+        </div>
+        <div class="project-body">
+          <div class="project-title">Medical IoT Surveillance</div>
+          <p class="project-desc">
+            IoT-based remote patient monitoring system designed to minimize staff requirements and reduce exposure risks in hospitals. Built a custom wearable vest with integrated ECG, temperature, pulse oximeter, and GPS — all transmitting data wirelessly to a server in real time.
+          </p>
+          <div class="project-tags">
+            <span class="tag">IoT</span><span class="tag">Embedded Systems</span><span class="tag">ECG</span><span class="tag">GPS</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div class="project-video">
+          <iframe src="https://www.youtube.com/embed/KmD6lZpNyyE"
+            title="RHex Autonomous Robot" loading="lazy"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+        <div class="project-body">
           <div class="project-title">RHex Autonomous Robot</div>
           <p class="project-desc">
             Simulated RHex-inspired legged robot in Gazebo with a velocity-constrained local planner and PID-based actuator control for stable locomotion and navigation.
@@ -871,86 +931,46 @@
   </div>
 </section>
 
-<!-- ────────────────────────── BLOG ───────────────────────────── -->
-<section id="blog">
-  <div class="container">
-    <div class="section-label">// writing</div>
-    <h2 class="section-title">Tech Blog</h2>
-    <div class="section-divider"></div>
-    <div class="blog-grid">
-      <a href="https://technerd.readthedocs.io/en/latest/amr_sorting_system.html" target="_blank" class="blog-card" style="display:block;">
-        <div class="blog-card-label">AMR · ROS2 · Rust</div>
-        <h3>AMR Sorting System</h3>
-        <p>Fleet navigation, gRPC architecture, A* path planning, and state machine task manager.</p>
-      </a>
-      <a href="https://technerd.readthedocs.io/en/latest/gazebo_terrain_generator.html" target="_blank" class="blog-card" style="display:block;">
-        <div class="blog-card-label">Gazebo · SITL · Tools</div>
-        <h3>Gazebo Terrain Generator</h3>
-        <p>Generating photorealistic 3D simulation worlds from real-world elevation data.</p>
-      </a>
-      <a href="https://technerd.readthedocs.io/en/latest/px4_sim.html" target="_blank" class="blog-card" style="display:block;">
-        <div class="blog-card-label">PX4 · SITL · Tutorials</div>
-        <h3>PX4 SITL Tutorials</h3>
-        <p>Setup, offboard control, velocity commands, and multi-drone simulation walkthroughs.</p>
-      </a>
-      <a href="https://technerd.readthedocs.io/en/latest/wireless_md.html" target="_blank" class="blog-card" style="display:block;">
-        <div class="blog-card-label">Embedded · IoT · PCB</div>
-        <h3>Wireless Motor Driver</h3>
-        <p>Designing a custom PCB motor driver with WiFi control using Wemos D1 Mini.</p>
-      </a>
-      <a href="https://technerd.readthedocs.io/en/latest/uv_sterilisation.html" target="_blank" class="blog-card" style="display:block;">
-        <div class="blog-card-label">ESP32 · Robotics · IoT</div>
-        <h3>UV Sterilization Robot</h3>
-        <p>Building an open-source autonomous sterilization robot from scratch during COVID-19.</p>
-      </a>
-      <a href="https://technerd.readthedocs.io/en/latest/" target="_blank" class="blog-card" style="display:block; border-color: var(--accent);">
-        <div class="blog-card-label">All Posts</div>
-        <h3>Read more on TechNerd →</h3>
-        <p>Full documentation, tutorials, and deep-dives on robotics engineering topics.</p>
-      </a>
-    </div>
-  </div>
-</section>
 
 <!-- ────────────────────────── ACHIEVEMENTS ───────────────────── -->
 <section id="achievements">
   <div class="container">
-    <div class="section-label">// recognition</div>
+
     <h2 class="section-title">Achievements & Research</h2>
     <div class="section-divider"></div>
     <div class="achievements-list">
       <div class="achievement-item">
         <div class="achievement-icon">🏆</div>
         <div>
-          <strong>Gazebo Terrain Generator</strong>
+          <a href="https://gazebosim.org/docs/latest/projects_using_gazebo/" target="_blank" style="color:var(--text);"><strong>Gazebo Terrain Generator</strong></a>
           <p>Featured on the official Gazebo website alongside notable community projects.</p>
         </div>
       </div>
       <div class="achievement-item">
         <div class="achievement-icon">🥇</div>
         <div>
-          <strong>1st Place — Techfest IIT Bombay Covideate (2020–21)</strong>
+          <a href="https://timesofindia.indiatimes.com/education/news/manipal-students-bag-global-covid-19-challenge-prize/articleshow/77892430.cms" target="_blank" style="color:var(--text);"><strong>1st Place — Techfest IIT Bombay Covideate (2020–21)</strong></a>
           <p>Won first place in a national-level innovation competition at IIT Bombay's flagship tech festival.</p>
         </div>
       </div>
       <div class="achievement-item">
         <div class="achievement-icon">🥉</div>
         <div>
-          <strong>3rd Place — IISF 2020, Swasth Bharath Category</strong>
+          <a href="https://drive.google.com/file/d/1jc3dSXgna3oSet9fOc6AjQKFJ9oP4tgu/view?usp=share_link" target="_blank" style="color:var(--text);"><strong>3rd Place — IISF 2020, Swasth Bharath Category</strong></a>
           <p>Recognized at the India International Science Festival for health-tech innovation.</p>
         </div>
       </div>
       <div class="achievement-item">
         <div class="achievement-icon">📄</div>
         <div>
-          <strong>IEEE Publication</strong>
+          <a href="https://ieeexplore.ieee.org/document/9121147" target="_blank" style="color:var(--text);"><strong>IEEE Publication</strong></a>
           <p>Automatic switching of water motor pump: A new approach.</p>
         </div>
       </div>
       <div class="achievement-item">
         <div class="achievement-icon">📄</div>
         <div>
-          <strong>Begell House Publication</strong>
+          <a href="https://www.dl.begellhouse.com/references/0632a9d54950b268,51a4b7060f03db78,175e1f4572f79e03.html" target="_blank" style="color:var(--text);"><strong>Begell House Publication</strong></a>
           <p>Monitoring physiological data through wearable electronics.</p>
         </div>
       </div>
@@ -961,7 +981,7 @@
 <!-- ────────────────────────── CONTACT ────────────────────────── -->
 <section id="contact">
   <div class="container">
-    <div class="section-label">// connect</div>
+
     <h2 class="section-title">Get In Touch</h2>
     <div class="section-divider"></div>
     <p class="contact-desc">
@@ -980,10 +1000,6 @@
       <a class="contact-link" href="https://github.com/saiaravind19" target="_blank">
         <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 21.795 24 17.295 24 12c0-6.63-5.37-12-12-12"/></svg>
         GitHub
-      </a>
-      <a class="contact-link" href="https://technerd.readthedocs.io/en/latest/" target="_blank">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
-        TechBlog
       </a>
     </div>
   </div>
