@@ -743,17 +743,10 @@
     </div>
     <div class="hero-stats">
       <div>
-        <div class="hero-stat-num">5+</div>
+        <div class="hero-stat-num" id="stat-years">—</div>
         <div class="hero-stat-label">Years Experience</div>
       </div>
-      <div>
-        <div class="hero-stat-num">10+</div>
-        <div class="hero-stat-label">Projects Shipped</div>
-      </div>
-      <div>
-        <div class="hero-stat-num">3</div>
-        <div class="hero-stat-label">Countries Worked In</div>
-      </div>
+
       <div>
         <div class="hero-stat-num">2</div>
         <div class="hero-stat-label">Publications</div>
@@ -1026,28 +1019,6 @@
         </div>
       </div>
 
-      <div class="project-card">
-        <div class="project-video">
-          <iframe src="https://www.youtube.com/embed/8vxNBiGw6P0?si=H7ATdnG28POtGZlM"
-            title="UV Sterilization Robot" loading="lazy"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-        </div>
-        <div class="project-body">
-          <div class="project-title">UV Sterilization Robot</div>
-          <p class="project-desc">
-            Open-source affordable robot for sterilizing hospital wards and ICUs with UV light, built during COVID-19. Uses ESP32's dual cores — one dedicated to the web UI, the other to navigation and obstacle avoidance. Simulated in CoppeliaSim (V-REP) before hardware deployment. Autonomous waypoint navigation with wireless control via a browser interface hosted on the ESP32.
-          </p>
-          <div class="project-tags">
-            <span class="tag">ESP32</span><span class="tag">ESP-IDF</span><span class="tag">CoppeliaSim</span><span class="tag">IoT</span>
-          </div>
-          <div class="project-links">
-            <a class="proj-link" href="https://github.com/tech-igloo/Semi-autonomous-UV-sterilization-bot" target="_blank">
-              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 21.795 24 17.295 24 12c0-6.63-5.37-12-12-12"/></svg>
-              GitHub
-            </a>
-          </div>
-        </div>
-      </div>
 
       <div class="project-card">
         <div class="project-video">
@@ -1145,7 +1116,7 @@
 
       <div class="project-card">
         <div class="project-video">
-          <iframe src="https://www.youtube.com/embed/KmD6lZpNyyE"
+          <iframe src="https://www.youtube.com/embed/n7WqN2YgBjs"
             title="RHex Autonomous Robot" loading="lazy"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
         </div>
@@ -1245,6 +1216,11 @@
 </footer>
 
 <script>
+  // ── Years of Experience (from Jun 2022) ───────────────────────
+  const start = new Date(2022, 5, 1); // June 2022
+  const years = (Date.now() - start) / (1000 * 60 * 60 * 24 * 365.25);
+  document.getElementById('stat-years').textContent = Math.round(years) + '+';
+
   // ── Scroll Reveal ──────────────────────────────────────────────
   const revealObserver = new IntersectionObserver((entries) => {
     entries.forEach(e => {
@@ -1260,10 +1236,9 @@
     revealObserver.observe(el);
   });
 
-  // ── Autoplay iframes when in viewport ─────────────────────────
-  // YouTube iframes: autoplay+mute when 50% visible, pause on exit
-  // Google Drive iframes: just lazy-load when near viewport (no autoplay API)
-  const ytObserver = new IntersectionObserver((entries) => {
+  // ── Autoplay all iframes when in viewport ─────────────────────
+  // YouTube: autoplay=1&mute=1 — Drive: autoplay=1
+  const videoObserver = new IntersectionObserver((entries) => {
     entries.forEach(e => {
       const iframe = e.target;
       const originalSrc = iframe.dataset.src;
@@ -1271,37 +1246,21 @@
 
       if (e.isIntersecting) {
         const sep = originalSrc.includes('?') ? '&' : '?';
-        iframe.src = originalSrc + sep + 'autoplay=1&mute=1';
+        const isYouTube = originalSrc.includes('youtube.com') || originalSrc.includes('youtu.be');
+        iframe.src = originalSrc + sep + (isYouTube ? 'autoplay=1&mute=1' : 'autoplay=1');
       } else {
-        // Reset: clear then restore original (stops playback)
         iframe.src = '';
         setTimeout(() => { iframe.src = originalSrc; }, 200);
       }
     });
   }, { threshold: 0.5 });
 
-  const driveObserver = new IntersectionObserver((entries) => {
-    entries.forEach(e => {
-      if (e.isIntersecting) {
-        const iframe = e.target;
-        if (!iframe.src) iframe.src = iframe.dataset.src;
-        driveObserver.unobserve(iframe);
-      }
-    });
-  }, { rootMargin: '200px' });
-
   document.querySelectorAll('iframe').forEach(iframe => {
     const src = iframe.getAttribute('src');
     if (!src) return;
     iframe.dataset.src = src;
     iframe.removeAttribute('src');
-
-    const isYouTube = src.includes('youtube.com') || src.includes('youtu.be');
-    if (isYouTube) {
-      ytObserver.observe(iframe);
-    } else {
-      driveObserver.observe(iframe);
-    }
+    videoObserver.observe(iframe);
   });
 </script>
 </body>
