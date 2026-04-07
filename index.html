@@ -228,7 +228,7 @@
     }
 
     /* ─── Section Shared ─────────────────────────────────────────── */
-    section { padding: 6rem 2rem; }
+    section { padding: 6rem 2rem; scroll-margin-top: 60px; }
 
     .container { max-width: 1000px; margin: 0 auto; }
 
@@ -340,6 +340,16 @@
       font-size: 1.1rem; font-weight: 700;
     }
 
+    .timeline-company-link {
+      font-size: 1.1rem; font-weight: 700;
+      color: var(--text);
+      text-decoration: none;
+    }
+
+    .timeline-company-link:hover {
+      color: var(--accent);
+    }
+
     .timeline-date {
       font-family: 'JetBrains Mono', monospace;
       font-size: 0.75rem;
@@ -379,6 +389,32 @@
       font-size: 0.75rem;
     }
 
+    .timeline-gallery {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 0.75rem;
+      margin-top: 1rem;
+    }
+
+    .timeline-gallery img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+      border-radius: 14px;
+      border: 1px solid var(--border);
+      background: #000;
+    }
+
+    @media (max-width: 760px) {
+      .timeline-gallery {
+        grid-template-columns: 1fr;
+      }
+
+      .timeline-gallery img {
+        height: 220px;
+      }
+    }
+
     /* ─── Projects ───────────────────────────────────────────────── */
     #projects { background: var(--bg2); }
 
@@ -404,9 +440,12 @@
     }
 
     .project-video {
-      width: 100%;
+      width: 75%;
       aspect-ratio: 16/9;
       background: #000;
+      overflow: hidden;
+      border-radius: 8px;
+      margin: 0.75rem auto 0;
     }
 
     .project-video iframe {
@@ -560,6 +599,79 @@
       width: 18px; height: 18px;
     }
 
+    /* ─── Timeline Video ─────────────────────────────────────────── */
+    .timeline-video {
+      margin-top: 1.25rem;
+      width: 50%;
+      aspect-ratio: 16/9;
+      border-radius: var(--radius);
+      overflow: hidden;
+      background: #000;
+      border: 1px solid var(--border);
+    }
+
+    .timeline-video iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+      display: block;
+    }
+
+    .timeline-video-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.75rem;
+      margin-top: 1.25rem;
+    }
+
+    .timeline-video-grid .timeline-video {
+      margin-top: 0;
+      width: 100%;
+    }
+
+    @media (max-width: 640px) {
+      .timeline-video-grid { grid-template-columns: 1fr; }
+    }
+
+    /* ─── Hero Stats ─────────────────────────────────────────────── */
+    .hero-stats {
+      display: flex; flex-wrap: wrap; gap: 2.5rem;
+      margin-top: 2.5rem;
+      padding-top: 2rem;
+      border-top: 1px solid var(--border);
+    }
+
+    .hero-stat-num {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 1.8rem; font-weight: 700;
+      color: var(--accent);
+      line-height: 1;
+    }
+
+    .hero-stat-label {
+      font-size: 0.75rem;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-top: 0.25rem;
+    }
+
+    /* ─── Scroll Reveal ──────────────────────────────────────────── */
+    .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.55s ease, transform 0.55s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .reveal-delay-1 { transition-delay: 0.1s; }
+    .reveal-delay-2 { transition-delay: 0.2s; }
+    .reveal-delay-3 { transition-delay: 0.3s; }
+
     /* ─── Footer ─────────────────────────────────────────────────── */
     footer {
       border-top: 1px solid var(--border);
@@ -597,6 +709,7 @@
 
 <!-- ────────────────────────── NAV ────────────────────────────── -->
 <nav>
+  <a href="#hero" class="nav-logo">sai.dev</a>
   <ul class="nav-links" id="navLinks">
     <li><a href="#skills">Skills</a></li>
     <li><a href="#experience">Experience</a></li>
@@ -628,12 +741,31 @@
       <a href="#projects" class="btn btn-primary">View Projects ↓</a>
       <a href="#contact" class="btn btn-outline">Get in Touch</a>
     </div>
+    <div class="hero-stats">
+      <div>
+        <div class="hero-stat-num">5+</div>
+        <div class="hero-stat-label">Years Experience</div>
+      </div>
+      <div>
+        <div class="hero-stat-num">10+</div>
+        <div class="hero-stat-label">Projects Shipped</div>
+      </div>
+      <div>
+        <div class="hero-stat-num">3</div>
+        <div class="hero-stat-label">Countries Worked In</div>
+      </div>
+      <div>
+        <div class="hero-stat-num">2</div>
+        <div class="hero-stat-label">Publications</div>
+      </div>
+    </div>
   </div>
 </section>
 
 <!-- ────────────────────────── SKILLS ─────────────────────────── -->
 <section id="skills">
   <div class="container">
+    <div class="section-label">What I work with</div>
     <h2 class="section-title">Technical Skills</h2>
     <div class="section-divider"></div>
     <div class="skills-grid">
@@ -681,6 +813,7 @@
 <section id="experience">
   <div class="container">
 
+    <div class="section-label">Where I've worked</div>
     <h2 class="section-title">Experience</h2>
     <div class="section-divider"></div>
     <div class="timeline">
@@ -701,7 +834,7 @@
       <div class="timeline-item">
         <div class="timeline-dot"></div>
         <div class="timeline-header">
-          <span class="timeline-company">NewSpace Research and Technologies</span>
+          <a href="https://newspace.co.in/" class="timeline-company-link">NewSpace Research and Technologies</a>
           <span class="timeline-date">Aug 2023 – Oct 2025</span>
         </div>
         <div class="timeline-role">Robotics Software Engineer</div>
@@ -714,12 +847,16 @@
           <li>Implemented LCM-based drone-to-drone communication, reducing bandwidth usage by 60%.</li>
           <li>Built a comprehensive logging framework, facilitating faster debugging and crash analysis.</li>
         </ul>
+        <div class="timeline-video">
+          <iframe src="https://drive.google.com/file/d/1EN-rYjKaCCxxzvn6cz1VT-sa5WkCVU4H/preview"
+            title="CCA Demo Video" loading="lazy" allowfullscreen></iframe>
+        </div>
       </div>
 
       <div class="timeline-item">
         <div class="timeline-dot"></div>
         <div class="timeline-header">
-          <span class="timeline-company">Unbox Robotics</span>
+          <a href="https://unboxrobotics.com/" class="timeline-company-link">Unbox Robotics</a>
           <span class="timeline-date">Jun 2022 – Jul 2023</span>
         </div>
         <div class="timeline-role">Robotics Software Engineer</div>
@@ -730,6 +867,17 @@
           <li>Developed an OTA update module — achieved 86% reduction in firmware update process time.</li>
           <li>Led development of a configuration manager that cut system deployment time by 50%.</li>
         </ul>
+        <div class="timeline-video-grid">
+          <div class="timeline-video">
+            <iframe src="https://drive.google.com/file/d/1y3Pmgf1Q8zZcuK7GTYME05TCl05KyVPb/preview"
+              title="Unbox Robotics System" loading="lazy" allowfullscreen></iframe>
+          </div>
+          <div class="timeline-video">
+            <iframe src="https://www.youtube.com/embed/nTOww2MV784"
+              title="Unbox Robotics System" loading="lazy"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          </div>
+        </div>
       </div>
 
       <div class="timeline-item">
@@ -743,6 +891,29 @@
         <ul class="timeline-bullets">
           <li>Developed autonomous waypoint navigation stack with vision-based obstacle avoidance and socket-based base-station communication for UGVs.</li>
         </ul>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-header">
+          <span class="timeline-company">RimTex</span>
+          <span class="timeline-date">AGV Internship</span>
+        </div>
+        <div class="timeline-role">AGV Intern</div>
+        <div class="timeline-location">📍 Pune, India</div>
+        <ul class="timeline-bullets">
+          <li>Worked on autonomous guided vehicle development for industrial material handling.</li>
+        </ul>
+        <div class="timeline-video-grid">
+          <div class="timeline-video">
+            <iframe src="https://drive.google.com/file/d/1HtzJ7E-EotkMxwxIBd-rD_FmyWS-1dtf/preview"
+              title="RimTex AGV Demo Video" loading="lazy" allowfullscreen></iframe>
+          </div>
+          <div class="timeline-video">
+            <iframe src="https://drive.google.com/file/d/1c6klF59QW0buTOVjsACf3R1T9E7vy8MC/preview"
+              title="RimTex AGV Additional Video" loading="lazy" allowfullscreen></iframe>
+          </div>
+        </div>
       </div>
 
       <div class="timeline-item">
@@ -781,6 +952,7 @@
 <section id="projects">
   <div class="container">
 
+    <div class="section-label">Things I've built</div>
     <h2 class="section-title">Projects</h2>
     <div class="section-divider"></div>
     <div class="projects-grid">
@@ -956,6 +1128,23 @@
 
       <div class="project-card">
         <div class="project-video">
+          <img src="https://drive.google.com/thumbnail?id=1DhZPP76Keg3geyxwQ-maR8mNjLcvQm-g&sz=w800"
+            alt="RC Gripper Robot — Lead Screw Mechanism"
+            style="width:100%;height:100%;object-fit:cover;" loading="lazy" />
+        </div>
+        <div class="project-body">
+          <div class="project-title">RC Gripper Robot</div>
+          <p class="project-desc">
+            RC-controlled gripper using a lead screw mechanism for precise linear actuation and grip force control.
+          </p>
+          <div class="project-tags">
+            <span class="tag">Embedded</span><span class="tag">Mechanical Design</span><span class="tag">Lead Screw</span><span class="tag">RC</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div class="project-video">
           <iframe src="https://www.youtube.com/embed/KmD6lZpNyyE"
             title="RHex Autonomous Robot" loading="lazy"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
@@ -980,6 +1169,7 @@
 <section id="achievements">
   <div class="container">
 
+    <div class="section-label">Recognition</div>
     <h2 class="section-title">Achievements & Research</h2>
     <div class="section-divider"></div>
     <div class="achievements-list">
@@ -1051,8 +1241,68 @@
 
 <!-- ────────────────────────── FOOTER ─────────────────────────── -->
 <footer>
-  <p>Built with HTML & CSS · Sai Aravind CH © 2025</p>
+  <p>Built with HTML & CSS · Sai Aravind CH © 2026</p>
 </footer>
 
+<script>
+  // ── Scroll Reveal ──────────────────────────────────────────────
+  const revealObserver = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('visible');
+        revealObserver.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.12 });
+
+  document.querySelectorAll('.skill-card, .timeline-item, .project-card, .achievement-item, .blog-card').forEach((el, i) => {
+    el.classList.add('reveal');
+    revealObserver.observe(el);
+  });
+
+  // ── Autoplay iframes when in viewport ─────────────────────────
+  // YouTube iframes: autoplay+mute when 50% visible, pause on exit
+  // Google Drive iframes: just lazy-load when near viewport (no autoplay API)
+  const ytObserver = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      const iframe = e.target;
+      const originalSrc = iframe.dataset.src;
+      if (!originalSrc) return;
+
+      if (e.isIntersecting) {
+        const sep = originalSrc.includes('?') ? '&' : '?';
+        iframe.src = originalSrc + sep + 'autoplay=1&mute=1';
+      } else {
+        // Reset: clear then restore original (stops playback)
+        iframe.src = '';
+        setTimeout(() => { iframe.src = originalSrc; }, 200);
+      }
+    });
+  }, { threshold: 0.5 });
+
+  const driveObserver = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        const iframe = e.target;
+        if (!iframe.src) iframe.src = iframe.dataset.src;
+        driveObserver.unobserve(iframe);
+      }
+    });
+  }, { rootMargin: '200px' });
+
+  document.querySelectorAll('iframe').forEach(iframe => {
+    const src = iframe.getAttribute('src');
+    if (!src) return;
+    iframe.dataset.src = src;
+    iframe.removeAttribute('src');
+
+    const isYouTube = src.includes('youtube.com') || src.includes('youtu.be');
+    if (isYouTube) {
+      ytObserver.observe(iframe);
+    } else {
+      driveObserver.observe(iframe);
+    }
+  });
+</script>
 </body>
 </html>
