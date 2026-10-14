@@ -10,7 +10,7 @@ lede: The fastest way to reach me is email. I read everything and reply.
 
 ## What I'm looking for
 
-Robotics software internships where I can work on multi-robot coordination, motion planning, simulation or autonomy stacks (ROS2, C++, Python).
+Robotics software internships where I can work on perception-driven behavior control, multi-robot coordination, motion planning or simulation (ROS2, C++, Python).
 
 ## If you're a recruiter or hiring manager
 
