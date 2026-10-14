@@ -120,6 +120,8 @@ a.chip:hover,button.chip:hover{border-color:var(--accent);color:var(--accent)}
 .card-actions{display:flex;gap:8px;margin-top:auto;padding-top:18px}
 .card-actions .chip{position:relative;z-index:2}
 .cover{margin:-22px -22px 16px;aspect-ratio:16/9;overflow:hidden;border-radius:var(--radius) var(--radius) 0 0;background:var(--bg2);border-bottom:1px solid var(--line)}
+.cover-video .video{height:100%;aspect-ratio:auto;border:0;border-radius:0}
+.card.no-details:hover{transform:none;border-color:var(--line)}
 .cover img{width:100%;height:100%;object-fit:cover}
 .exp-media{margin:14px 0 6px}
 .media{grid-template-columns:repeat(auto-fit,minmax(300px,1fr))}

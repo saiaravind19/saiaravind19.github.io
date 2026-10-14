@@ -6,7 +6,7 @@ tags: [PX4, ROS, Gazebo, Qt, RVO, Image Processing]
 repo: https://github.com/saiaravind19/px4_drone_show
 highlight: Swarm
 featured: true
-youtube: [PH_vu_SqwpU, n7WqN2YgBjs]
+youtube: [PH_vu_SqwpU]
 order: 4
 ---
 ## What it does

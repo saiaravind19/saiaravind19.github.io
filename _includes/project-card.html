@@ -1,12 +1,22 @@
 {% assign p = include.project %}
-<article class="card project" data-tags="{{ p.tags | join: ',' | downcase }}">
-  <a class="card-link" href="{{ p.url | relative_url }}" aria-label="{{ p.title | escape }}"></a>
-  {%- assign cover = "" -%}
-  {%- if p.youtube -%}{%- assign yt0 = p.youtube | first -%}{%- assign cover = "https://i.ytimg.com/vi/" | append: yt0 | append: "/hqdefault.jpg" -%}
-  {%- elsif p.images -%}{%- assign im0 = p.images | first -%}{%- if im0.src -%}{%- assign cover = im0.src -%}{%- else -%}{%- assign cover = im0 -%}{%- endif -%}
-  {%- elsif p.drive -%}{%- assign dr0 = p.drive | first -%}{%- assign cover = "https://drive.google.com/thumbnail?id=" | append: dr0 | append: "&sz=w800" -%}
+<article class="card project{% if p.details != true %} no-details{% endif %}" data-tags="{{ p.tags | join: ',' | downcase }}">
+  {% if p.details == true %}<a class="card-link" href="{{ p.url | relative_url }}" aria-label="{{ p.title | escape }}"></a>{% endif %}
+  {%- assign vid_src = "" -%}
+  {%- if p.details != true -%}
+    {%- if p.youtube -%}{%- assign v0 = p.youtube | first -%}{%- assign vid_src = "https://www.youtube-nocookie.com/embed/" | append: v0 | append: "?autoplay=1&rel=0" -%}{%- assign vid_thumb = "https://i.ytimg.com/vi/" | append: v0 | append: "/hqdefault.jpg" -%}
+    {%- elsif p.drive -%}{%- assign v0 = p.drive | first -%}{%- assign vid_src = "https://drive.google.com/file/d/" | append: v0 | append: "/preview" -%}{%- assign vid_thumb = "https://drive.google.com/thumbnail?id=" | append: v0 | append: "&sz=w800" -%}
+    {%- endif -%}
   {%- endif -%}
-  {%- if cover != "" -%}{%- unless cover contains "://" -%}{%- assign cover = cover | relative_url -%}{%- endunless -%}<div class="cover"><img src="{{ cover }}" alt="" loading="lazy" onerror="this.parentNode.style.display='none'"></div>{%- endif -%}
+  {%- if vid_src != "" -%}
+    <div class="cover cover-video">{%- include video.html src=vid_src thumb=vid_thumb title=p.title -%}</div>
+  {%- else -%}
+    {%- assign cover = "" -%}
+    {%- if p.youtube -%}{%- assign yt0 = p.youtube | first -%}{%- assign cover = "https://i.ytimg.com/vi/" | append: yt0 | append: "/hqdefault.jpg" -%}
+    {%- elsif p.images -%}{%- assign im0 = p.images | first -%}{%- if im0.src -%}{%- assign cover = im0.src -%}{%- else -%}{%- assign cover = im0 -%}{%- endif -%}
+    {%- elsif p.drive -%}{%- assign dr0 = p.drive | first -%}{%- assign cover = "https://drive.google.com/thumbnail?id=" | append: dr0 | append: "&sz=w800" -%}
+    {%- endif -%}
+    {%- if cover != "" -%}{%- unless cover contains "://" -%}{%- assign cover = cover | relative_url -%}{%- endunless -%}<div class="cover"><img src="{{ cover }}" alt="" loading="lazy" onerror="this.parentNode.style.display='none'"></div>{%- endif -%}
+  {%- endif -%}
   <div class="card-top">
     <span class="kicker">{{ p.kind | default: "Project" }}</span>
     {% if p.highlight %}<span class="badge">{{ p.highlight }}</span>{% endif %}
@@ -17,6 +27,6 @@
   <div class="card-actions">
     {% if p.repo %}<a href="{{ p.repo }}" class="chip">Code ↗</a>{% endif %}
     {% if p.demo %}<a href="{{ p.demo }}" class="chip">Demo ↗</a>{% endif %}
-    <span class="chip chip-ghost">Details →</span>
+    {% if p.details == true %}<span class="chip chip-ghost">Details →</span>{% endif %}
   </div>
 </article>

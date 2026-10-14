@@ -38,3 +38,7 @@ images:                              # gallery with click-to-zoom
 Put image files in `assets/img/projects/`. Inside the markdown body you can also use
 `{% raw %}{% include youtube.html id="VIDEO_ID" %}{% endraw %}` and
 `{% raw %}{% include figure.html src="/assets/img/projects/x.png" caption="..." %}{% endraw %}`.
+
+## Turning on a project's details page
+
+Cards on the home and Projects pages are not clickable until you add `details: true` to that project's front matter. Until then the card plays its video right in the card, and there is no "Details" button.
