@@ -70,6 +70,7 @@ a.chip:hover,button.chip:hover{border-color:var(--accent);color:var(--accent)}
 .hero h1{margin-bottom:.4em}
 .hero-art{margin:0}
 .hero-art figcaption{font:.78rem var(--mono);color:var(--muted);margin-top:10px;text-align:center}
+.sim{display:block;width:100%;height:auto;border-radius:16px;border:1px solid var(--line);cursor:crosshair}
 .art{width:100%;height:auto;color:var(--accent2)}
 .art-bg{fill:var(--card);stroke:var(--line)}
 .obst rect{fill:var(--bg2);stroke:var(--line)}
