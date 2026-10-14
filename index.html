@@ -26,16 +26,6 @@ body_class: home
   </div>
 </section>
 
-<section class="wrap proof" aria-label="Measured results">
-  {% for p in site.data.proof %}
-  <div class="proof-item">
-    <div class="proof-value">{{ p.value }}</div>
-    <div class="proof-label">{{ p.label }}</div>
-    <div class="proof-detail">{{ p.detail }}</div>
-  </div>
-  {% endfor %}
-</section>
-
 <section class="wrap section">
   <div class="section-head">
     <p class="eyebrow">Why trust the work</p>
@@ -47,8 +37,8 @@ body_class: home
       <p>Warehouse fleets at Unbox Robotics, a decentralized AMR fleet at LexxPluss, and fixed-wing plus multicopter swarms at NewSpace Research. Field-tested, with simulation behavior checked against real deployments.</p>
     </div>
     <div class="trust">
-      <h3>Numbers I can explain</h3>
-      <p>Each figure above comes from a system I built. Ask me how it was measured and what it traded off, and I'll walk you through it.</p>
+      <h3>Happy to go deep</h3>
+      <p>For any project or result on this site, I can walk you through how it was built, how it was tested, and what it traded off.</p>
     </div>
     <div class="trust">
       <h3>Code you can read</h3>
@@ -90,10 +80,23 @@ body_class: home
       </div>
     </li>
     {% endfor %}
+  </ol>
+</section>
+
+<section class="wrap section">
+  <div class="section-head"><p class="eyebrow">Where I studied</p><h2>Education</h2></div>
+  <ol class="timeline">
     <li>
       <div class="tl-when">Fall 2026 – now</div>
       <div class="tl-body">
         <h3>M.Eng. Robotics <span class="at">· University of Maryland, College Park</span></h3>
+      </div>
+    </li>
+    <li>
+      <div class="tl-when">2017 – 2021</div>
+      <div class="tl-body">
+        <h3>B.Tech. Mechatronics <span class="at">· Manipal Institute of Technology</span></h3>
+        <p class="muted">GPA 8.56 / 10</p>
       </div>
     </li>
   </ol>

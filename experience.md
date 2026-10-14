@@ -10,6 +10,20 @@ lede: Three robotics roles across warehouse fleets and aerial swarms, plus earli
 
 {% for pt in job.points %}- {{ pt }}
 {% endfor %}
+
+{% include media.html youtube=job.youtube drive=job.drive title=job.org %}
+{% endfor %}
+
+## Earlier experience
+
+{% for e in site.data.earlier %}### {{ e.role }}, {{ e.org }}
+
+*{{ e.when }}*
+
+{{ e.text }}
+
+{% include media.html youtube=e.youtube drive=e.drive title=e.org %}
+
 {% endfor %}
 
 ## Education
@@ -17,11 +31,6 @@ lede: Three robotics roles across warehouse fleets and aerial swarms, plus earli
 **University of Maryland, College Park**, M.Eng. in Robotics, Fall 2026 – present.
 
 **Manipal Institute of Technology**, B.Tech. in Mechatronics, 2017 – 2021 (GPA 8.56 / 10).
-
-## Earlier experience
-
-{% for e in site.data.earlier %}- **{{ e.org }}**, {{ e.role }} ({{ e.when }}). {{ e.text }}
-{% endfor %}
 
 ## Recognition
 

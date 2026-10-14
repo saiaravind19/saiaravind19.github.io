@@ -9,6 +9,7 @@
   role: Robotics Software Engineer
   place: Bangalore, India
   when: Aug 2023 – Oct 2025
+  drive: [1EN-rYjKaCCxxzvn6cz1VT-sa5WkCVU4H]
   points:
     - Implemented Reciprocal Velocity Obstacles (RVO) collision avoidance and state-machine behavior for a heterogeneous fleet of fixed-wing aircraft and multicopters.
     - Cut inter-drone bandwidth by 60% with LCM communication over a WiFi mesh.
@@ -19,6 +20,8 @@
   role: Robotics Software Engineer
   place: Pune, India
   when: Jun 2022 – Jul 2023
+  drive: [1y3Pmgf1Q8zZcuK7GTYME05TCl05KyVPb]
+  youtube: [nTOww2MV784]
   points:
     - Designed a state-machine task allocation algorithm and a predictive battery scheduler for a sorting-robot fleet, improving uptime.
     - Built ROS2 fleet-manager-to-robot communication with static peer discovery, removing dynamic broadcast traffic at scale.

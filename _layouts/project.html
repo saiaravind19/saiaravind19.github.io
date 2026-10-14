@@ -14,18 +14,6 @@ layout: default
       {% if page.link %}<a class="btn btn-ghost" href="{{ page.link }}">{{ page.link_label | default: "Learn more" }} ↗</a>{% endif %}
     </div>
   </header>
-  {% if page.youtube %}
-    {% assign vids = page.youtube %}
-    <section class="media" aria-label="Demo videos">
-      {% for v in vids %}{% include youtube.html id=v title=page.title %}{% endfor %}
-    </section>
-  {% endif %}
-  {% if page.images %}
-    <section class="gallery" aria-label="Images">
-      {% for img in page.images %}
-        {% if img.src %}{% include figure.html src=img.src caption=img.caption alt=img.alt %}{% else %}{% include figure.html src=img %}{% endif %}
-      {% endfor %}
-    </section>
-  {% endif %}
+  {% include media.html youtube=page.youtube drive=page.drive images=page.images title=page.title %}
   <div class="prose">{{ content }}</div>
 </article>

@@ -8,7 +8,8 @@ link: https://gazebosim.org/docs/latest/projects_using_gazebo/
 link_label: See it on the Gazebo site
 highlight: Featured by Gazebo
 featured: true
-order: 1
+youtube: [TsV34XBntnY]
+order: 2
 ---
 ## What it does
 

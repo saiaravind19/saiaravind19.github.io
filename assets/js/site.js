@@ -18,13 +18,13 @@
     });
   });
 
-  // click-to-load YouTube (no tracking until played)
-  document.querySelectorAll('.video[data-yt]').forEach(function (v) {
+  // click-to-load video embeds (YouTube / Google Drive): nothing third-party loads until played
+  document.querySelectorAll('.video[data-embed]').forEach(function (v) {
     var btn = v.querySelector('.video-play'); if (!btn) return;
     btn.addEventListener('click', function () {
       var i = document.createElement('iframe');
-      i.src = 'https://www.youtube-nocookie.com/embed/' + v.dataset.yt + '?autoplay=1&rel=0';
-      i.allow = 'accelerometer; autoplay; encrypted-media; picture-in-picture; fullscreen';
+      i.src = v.dataset.embed;
+      i.allow = 'autoplay; encrypted-media; picture-in-picture; fullscreen';
       i.allowFullscreen = true; i.title = 'Demo video';
       v.replaceChild(i, btn);
     });

@@ -1,0 +1,1 @@
+{%- assign vt = include.title | default: "Demo video" -%}<div class="video" data-embed="{{ include.src }}"><button class="video-play" type="button" aria-label="Play: {{ vt | escape }}"><img src="{{ include.thumb }}" alt="" loading="lazy" onerror="this.style.display='none'"><span class="play-icon" aria-hidden="true"></span></button></div>

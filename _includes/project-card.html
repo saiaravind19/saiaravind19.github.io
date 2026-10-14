@@ -1,6 +1,12 @@
 {% assign p = include.project %}
 <article class="card project" data-tags="{{ p.tags | join: ',' | downcase }}">
   <a class="card-link" href="{{ p.url | relative_url }}" aria-label="{{ p.title | escape }}"></a>
+  {%- assign cover = "" -%}
+  {%- if p.youtube -%}{%- assign yt0 = p.youtube | first -%}{%- assign cover = "https://i.ytimg.com/vi/" | append: yt0 | append: "/hqdefault.jpg" -%}
+  {%- elsif p.images -%}{%- assign im0 = p.images | first -%}{%- if im0.src -%}{%- assign cover = im0.src -%}{%- else -%}{%- assign cover = im0 -%}{%- endif -%}
+  {%- elsif p.drive -%}{%- assign dr0 = p.drive | first -%}{%- assign cover = "https://drive.google.com/thumbnail?id=" | append: dr0 | append: "&sz=w800" -%}
+  {%- endif -%}
+  {%- if cover != "" -%}{%- unless cover contains "://" -%}{%- assign cover = cover | relative_url -%}{%- endunless -%}<div class="cover"><img src="{{ cover }}" alt="" loading="lazy" onerror="this.parentNode.style.display='none'"></div>{%- endif -%}
   <div class="card-top">
     <span class="kicker">{{ p.kind | default: "Project" }}</span>
     {% if p.highlight %}<span class="badge">{{ p.highlight }}</span>{% endif %}
