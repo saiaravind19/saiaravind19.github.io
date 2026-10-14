@@ -1,0 +1,25 @@
+---
+layout: default
+title: Notes
+summary: Engineering notes and write-ups by Sai Aravind CH.
+---
+<div class="wrap">
+  <header class="page-head">
+    <p class="eyebrow">Write-ups</p>
+    <h1>Notes</h1>
+    <p class="lede">Short engineering write-ups: what I built, what broke, what I'd do differently.</p>
+  </header>
+  {% assign notes = site.notes | sort: "date" | reverse %}
+  {% if notes.size == 0 %}<p class="muted">Nothing here yet.</p>{% endif %}
+  <ul class="note-list">
+    {% for n in notes %}
+    <li>
+      <a href="{{ n.url | relative_url }}">
+        <span class="note-date">{% if n.date %}{{ n.date | date: "%b %-d, %Y" }}{% endif %}</span>
+        <span class="note-title">{{ n.title }}</span>
+        <span class="note-sum">{{ n.summary }}</span>
+      </a>
+    </li>
+    {% endfor %}
+  </ul>
+</div>

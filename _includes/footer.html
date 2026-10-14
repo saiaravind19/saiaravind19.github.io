@@ -1,0 +1,14 @@
+<footer class="site-footer">
+  <div class="wrap foot">
+    <div>
+      <strong>{{ site.data.profile.name }}</strong><br>
+      <span class="muted">{{ site.data.profile.current }}</span>
+    </div>
+    <div class="foot-links">
+      <a href="mailto:{{ site.data.profile.email }}">Email</a>
+      <a href="{{ site.data.profile.linkedin }}" rel="me">LinkedIn</a>
+      <a href="https://github.com/{{ site.data.profile.github }}" rel="me">GitHub</a>
+      <a href="{{ site.data.profile.resume | relative_url }}">Resume</a>
+    </div>
+  </div>
+</footer>

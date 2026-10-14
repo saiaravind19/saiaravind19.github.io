@@ -1,0 +1,33 @@
+title: Sai Aravind CH
+tagline: Robotics Software Engineer
+description: Robotics software engineer building decentralized multi-robot fleets, drone swarms and simulation tooling. M.Eng. Robotics at the University of Maryland.
+url: https://saiaravind19.github.io
+baseurl: ""
+lang: en
+
+markdown: kramdown
+kramdown:
+  input: GFM
+  syntax_highlighter: rouge
+  hard_wrap: false
+
+permalink: /:categories/:title/
+
+# Drop a .md file into one of these folders and it becomes a page. Nothing else to edit.
+collections:
+  projects:
+    output: true
+    permalink: /projects/:name/
+  notes:
+    output: true
+    permalink: /notes/:name/
+
+defaults:
+  - scope: { path: "", type: projects }
+    values: { layout: project }
+  - scope: { path: "", type: notes }
+    values: { layout: note }
+  - scope: { path: "" }
+    values: { layout: page }
+
+exclude: [README.md, Gemfile, Gemfile.lock, vendor, node_modules]

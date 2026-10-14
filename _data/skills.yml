@@ -1,0 +1,8 @@
+- group: Languages
+  items: [C++, Python, Rust]
+- group: Robotics
+  items: [ROS2, ROS, PX4, MAVLink, Motion Planning, RVO, Zenoh, DDS, LCM]
+- group: Simulation
+  items: [Gazebo, CoppeliaSim, JSBSim, SITL]
+- group: Systems
+  items: [Docker, Git, gRPC, REST APIs, CI/CD, IoT]

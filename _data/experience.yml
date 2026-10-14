@@ -1,0 +1,26 @@
+- org: LexxPluss
+  role: Software Engineer, Distributed Systems
+  place: Tokyo, Japan
+  when: Oct 2025 – Aug 2026
+  points:
+    - Designed an auction-based task allocation algorithm where robots bid for tasks, removing the central-manager bottleneck and single point of failure.
+    - Built a Zenoh pub-sub layer streaming real-time telemetry across the fleet, enabling low-latency decentralized decision-making.
+- org: NewSpace Research and Technologies
+  role: Robotics Software Engineer
+  place: Bangalore, India
+  when: Aug 2023 – Oct 2025
+  points:
+    - Implemented Reciprocal Velocity Obstacles (RVO) collision avoidance and state-machine behavior for a heterogeneous fleet of fixed-wing aircraft and multicopters.
+    - Cut inter-drone bandwidth by 60% with LCM communication over a WiFi mesh.
+    - Built simulation tooling (Gazebo terrain generator, payload-drop and target-tracking modules) to test missions virtually before flight.
+    - Ran field tests and verified simulation behavior against real-world deployment at scale.
+    - Integrated an in-house flight dynamics model with JSBSim for Collaborative Combat Aircraft work, shown at AERO India 2025.
+- org: Unbox Robotics
+  role: Robotics Software Engineer
+  place: Pune, India
+  when: Jun 2022 – Jul 2023
+  points:
+    - Designed a state-machine task allocation algorithm and a predictive battery scheduler for a sorting-robot fleet, improving uptime.
+    - Built ROS2 fleet-manager-to-robot communication with static peer discovery, removing dynamic broadcast traffic at scale.
+    - Built a shared error-handling pipeline across robot types, cutting per-robot development effort.
+    - Led a configuration manager and OTA firmware module; deployment time down 50%, update time down 86%.

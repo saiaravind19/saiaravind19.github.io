@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="{{ site.lang }}">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  {% assign page_title = site.title | append: " — " | append: site.tagline %}
+  {% if page.title and page.url != "/" %}{% assign page_title = page.title | append: " · " | append: site.title %}{% endif %}
+  {% assign page_desc = page.summary | default: page.description | default: site.description %}
+  <title>{{ page_title }}</title>
+  <meta name="description" content="{{ page_desc | strip_html | escape }}">
+  <meta name="author" content="{{ site.title }}">
+  <meta name="theme-color" content="#0b0f14">
+  <link rel="canonical" href="{{ page.url | absolute_url }}">
+  <meta property="og:title" content="{{ page_title | escape }}">
+  <meta property="og:description" content="{{ page_desc | strip_html | escape }}">
+  <meta property="og:url" content="{{ page.url | absolute_url }}">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{{ '/assets/css/site.css' | relative_url }}">
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"Person","name":"{{ site.data.profile.name }}","url":"{{ site.url }}","email":"{{ site.data.profile.email }}","jobTitle":"{{ site.tagline }}","alumniOf":[{"@type":"CollegeOrUniversity","name":"University of Maryland, College Park"},{"@type":"CollegeOrUniversity","name":"Manipal Institute of Technology"}],"sameAs":["https://github.com/{{ site.data.profile.github }}","{{ site.data.profile.linkedin }}"]}
+  </script>
+</head>
+<body class="{{ page.body_class }}">
+  <a class="skip" href="#main">Skip to content</a>
+  {% include header.html %}
+  <main id="main">
+    {{ content }}
+  </main>
+  {% include footer.html %}
+  <script src="{{ '/assets/js/site.js' | relative_url }}" defer></script>
+</body>
+</html>

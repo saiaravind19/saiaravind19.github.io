@@ -1,0 +1,7 @@
+<div class="video" data-yt="{{ include.id }}">
+  <button class="video-play" type="button" aria-label="Play video: {{ include.title | default: 'demo' | escape }}">
+    <img src="https://i.ytimg.com/vi/{{ include.id }}/hqdefault.jpg" alt="" loading="lazy">
+    <span class="play-icon" aria-hidden="true"></span>
+  </button>
+  <noscript><a href="https://www.youtube.com/watch?v={{ include.id }}">Watch on YouTube</a></noscript>
+</div>

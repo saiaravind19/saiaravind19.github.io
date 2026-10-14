@@ -1,0 +1,23 @@
+---
+layout: default
+title: Projects
+summary: Robotics projects by Sai Aravind CH, including multi-robot fleets, drone swarms, simulation tools and embedded systems.
+---
+<div class="wrap">
+  <header class="page-head">
+    <p class="eyebrow">Work you can inspect</p>
+    <h1>Projects</h1>
+    <p class="lede">Fleet coordination, motion planning, simulation and embedded hardware. Most link to public code.</p>
+  </header>
+  {% assign all = site.projects | sort: "order" %}
+  {% assign alltags = "" | split: "" %}
+  {% for p in all %}{% for t in p.tags %}{% assign alltags = alltags | push: t %}{% endfor %}{% endfor %}
+  {% assign alltags = alltags | uniq | sort_natural %}
+  <div class="filters" role="group" aria-label="Filter projects by tag" data-filters>
+    <button class="chip is-on" data-tag="">All</button>
+    {% for t in alltags %}<button class="chip" data-tag="{{ t | downcase }}">{{ t }}</button>{% endfor %}
+  </div>
+  <div class="grid" data-grid>
+    {% for project in all %}{% include project-card.html project=project %}{% endfor %}
+  </div>
+</div>

@@ -1,0 +1,31 @@
+---
+layout: default
+---
+<article class="wrap prose-wrap">
+  <p class="crumb"><a href="{{ '/projects/' | relative_url }}">← All projects</a></p>
+  <header class="page-head">
+    <p class="eyebrow">{{ page.kind | default: "Project" }}</p>
+    <h1>{{ page.title }}</h1>
+    <p class="lede">{{ page.summary }}</p>
+    <ul class="tags">{% for t in page.tags %}<li>{{ t }}</li>{% endfor %}</ul>
+    <div class="actions">
+      {% if page.repo %}<a class="btn" href="{{ page.repo }}">View code on GitHub ↗</a>{% endif %}
+      {% if page.demo %}<a class="btn btn-ghost" href="{{ page.demo }}">Watch demo ↗</a>{% endif %}
+      {% if page.link %}<a class="btn btn-ghost" href="{{ page.link }}">{{ page.link_label | default: "Learn more" }} ↗</a>{% endif %}
+    </div>
+  </header>
+  {% if page.youtube %}
+    {% assign vids = page.youtube %}
+    <section class="media" aria-label="Demo videos">
+      {% for v in vids %}{% include youtube.html id=v title=page.title %}{% endfor %}
+    </section>
+  {% endif %}
+  {% if page.images %}
+    <section class="gallery" aria-label="Images">
+      {% for img in page.images %}
+        {% if img.src %}{% include figure.html src=img.src caption=img.caption alt=img.alt %}{% else %}{% include figure.html src=img %}{% endif %}
+      {% endfor %}
+    </section>
+  {% endif %}
+  <div class="prose">{{ content }}</div>
+</article>

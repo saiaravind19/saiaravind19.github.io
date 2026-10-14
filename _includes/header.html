@@ -1,0 +1,17 @@
+<header class="site-header">
+  <div class="wrap bar">
+    <a class="brand" href="{{ '/' | relative_url }}" aria-label="Home">
+      <span class="brand-mark" aria-hidden="true"></span>
+      <span>Sai Aravind <b>CH</b></span>
+    </a>
+    <button class="nav-toggle" aria-label="Menu" aria-expanded="false" aria-controls="nav"><span></span><span></span></button>
+    <nav id="nav" class="nav">
+      {% for item in site.data.nav %}
+        {% assign on = false %}
+        {% if page.url == item.url or page.url contains item.url %}{% assign on = true %}{% endif %}
+        <a href="{{ item.url | relative_url }}"{% if on %} aria-current="page"{% endif %}>{{ item.title }}</a>
+      {% endfor %}
+      <a class="btn btn-sm" href="{{ site.data.profile.resume | relative_url }}">Resume&nbsp;PDF</a>
+    </nav>
+  </div>
+</header>

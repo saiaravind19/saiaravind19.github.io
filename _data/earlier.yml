@@ -1,0 +1,12 @@
+- org: Jay Robotix
+  role: Robotics Research Intern
+  when: Jan 2021 – Jul 2021
+  text: Autonomous waypoint navigation for UGVs with vision-based obstacle avoidance and base-station communication.
+- org: IoT-UnifyAI Tech
+  role: Robotics Intern
+  when: Oct 2020 – May 2021
+  text: ESP32 UV sterilization robot with waypoint navigation, obstacle detection and a web control interface.
+- org: RimTex
+  role: AGV Intern
+  when: Jun – Jul 2019
+  text: Autonomous guided vehicle work for industrial material handling.
