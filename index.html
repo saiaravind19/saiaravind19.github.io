@@ -26,39 +26,8 @@ body_class: home
   </div>
 </section>
 
-<section class="wrap section">
-  <div class="section-head">
-    <p class="eyebrow">Why trust the work</p>
-    <h2>Shipped to real robots, tested in simulation, and open to inspection</h2>
-  </div>
-  <div class="trust-grid">
-    <div class="trust">
-      <h3>Production, not demos</h3>
-      <p>Warehouse fleets at Unbox Robotics, a decentralized AMR fleet at LexxPluss, and fixed-wing plus multicopter swarms at NewSpace Research. Field-tested, with simulation behavior checked against real deployments.</p>
-    </div>
-    <div class="trust">
-      <h3>Happy to go deep</h3>
-      <p>For any project or result on this site, I can walk you through how it was built, how it was tested, and what it traded off.</p>
-    </div>
-    <div class="trust">
-      <h3>Code you can read</h3>
-      <p>The Gazebo terrain generator, drone show, and sorting system are public on <a href="https://github.com/{{ site.data.profile.github }}">GitHub</a>. The terrain generator is listed on the official Gazebo site.</p>
-    </div>
-  </div>
-</section>
-
-<section class="wrap section">
-  <div class="section-head row">
-    <div>
-      <p class="eyebrow">Selected work</p>
-      <h2>Projects</h2>
-    </div>
-    <a class="more" href="{{ '/projects/' | relative_url }}">All projects →</a>
-  </div>
-  <div class="grid">
-    {% assign featured = site.projects | where: "featured", true | sort: "order" %}
-    {% for project in featured %}{% include project-card.html project=project %}{% endfor %}
-  </div>
+<section class="wrap skills-row" aria-label="Skills">
+  {% for g in site.data.skills %}{% for i in g.items %}<span class="chip">{{ i }}</span>{% endfor %}{% endfor %}
 </section>
 
 <section class="wrap section">
@@ -76,11 +45,24 @@ body_class: home
       <div class="tl-body">
         <h3>{{ job.role }} <span class="at">· {{ job.org }}</span></h3>
         <p class="muted">{{ job.place }}</p>
-        <ul>{% for pt in job.points limit: 2 %}<li>{{ pt }}</li>{% endfor %}</ul>
+        <ul>{% for pt in job.points %}<li>{{ pt }}</li>{% endfor %}</ul>
       </div>
     </li>
     {% endfor %}
   </ol>
+</section>
+
+<section class="wrap section">
+  <div class="section-head row">
+    <div>
+      <p class="eyebrow">Things I've built</p>
+      <h2>Projects</h2>
+    </div>
+  </div>
+  <div class="grid">
+    {% assign all_projects = site.projects | sort: "order" %}
+    {% for project in all_projects %}{% include project-card.html project=project %}{% endfor %}
+  </div>
 </section>
 
 <section class="wrap section">
@@ -100,18 +82,6 @@ body_class: home
       </div>
     </li>
   </ol>
-</section>
-
-<section class="wrap section">
-  <div class="section-head"><p class="eyebrow">Toolbox</p><h2>Skills</h2></div>
-  <div class="skills">
-    {% for g in site.data.skills %}
-    <div class="skill-group">
-      <h3>{{ g.group }}</h3>
-      <ul class="tags">{% for i in g.items %}<li>{{ i }}</li>{% endfor %}</ul>
-    </div>
-    {% endfor %}
-  </div>
 </section>
 
 <section class="wrap cta">
