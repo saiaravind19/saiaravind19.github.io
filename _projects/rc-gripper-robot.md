@@ -5,6 +5,6 @@ summary: An RC-controlled gripper using a lead-screw mechanism for precise linea
 tags: [Embedded, Mechanical Design]
 images:
   - { src: "https://drive.google.com/thumbnail?id=1DhZPP76Keg3geyxwQ-maR8mNjLcvQm-g&sz=w1600", alt: "RC Gripper Robot, lead screw mechanism", caption: "Lead screw mechanism" }
-order: 8
+order: 7
 ---
 A lead-screw drives the jaws for precise linear motion and controllable grip force.

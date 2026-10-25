@@ -5,7 +5,7 @@ summary: A custom PCB combining an L298N motor driver with a Wemos D1 Mini, cont
 tags: [ESP8266, KiCad, IoT, Embedded]
 repo: https://github.com/saiaravind19/Wireless_Motor_Driver
 youtube: [LfRNsaYup2E]
-order: 3
+order: 8
 ---
 ## What it does
 

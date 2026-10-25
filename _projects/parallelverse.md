@@ -6,7 +6,7 @@ tags: [C++, Madrona, ECS, ZeroMQ, Protobuf]
 repo: https://github.com/saiaravind19/parallelverse
 featured: true
 youtube: [JtwCn2WjRnU]
-order: 2.5
+order: 3
 ---
 ## What it does
 
