@@ -9,7 +9,7 @@ link_label: See it on the Gazebo site
 highlight: Featured by Gazebo
 featured: true
 youtube: [TsV34XBntnY]
-order: 2
+order: 1
 ---
 ## What it does
 

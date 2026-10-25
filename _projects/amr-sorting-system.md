@@ -6,7 +6,7 @@ tags: [ROS2, Rust, gRPC, Modbus, Python]
 repo: https://github.com/saiaravind19/sorting-system
 featured: true
 youtube: [eQAzZhX_X8I]
-order: 1
+order: 2
 ---
 ## Architecture
 

@@ -1,5 +1,5 @@
 ---
-title: parallelverse
+title: Parallelverse
 kind: Fleet simulator
 summary: A 2D batch simulator built on the Madrona ECS engine that steps many warehouse worlds with hundreds of robots each in one process.
 tags: [C++, Madrona, ECS, ZeroMQ, Protobuf]
