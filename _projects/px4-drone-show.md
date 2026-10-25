@@ -4,7 +4,6 @@ kind: Multi-drone system
 summary: Drones form shapes extracted from any input image, using decentralized collision avoidance during formation changes.
 tags: [PX4, ROS, Gazebo, Qt, RVO, Image Processing]
 repo: https://github.com/saiaravind19/px4_drone_show
-highlight: Swarm
 featured: true
 youtube: [PH_vu_SqwpU]
 order: 4

@@ -4,7 +4,6 @@ kind: Multi-robot fleet
 summary: Warehouse sorting with a ROS2 robot fleet, A* path planning, state-machine task management and a Rust gRPC/Modbus hub.
 tags: [ROS2, Rust, gRPC, Modbus, Python]
 repo: https://github.com/saiaravind19/sorting-system
-highlight: Three-tier architecture
 featured: true
 youtube: [eQAzZhX_X8I]
 order: 1

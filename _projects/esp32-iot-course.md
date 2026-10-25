@@ -5,7 +5,6 @@ summary: A course taking beginners from ESP32 basics to real IoT projects, cover
 tags: [ESP32, IoT, RTOS, Embedded]
 link: https://www.udemy.com/course/esp32-a-beginners-guide-to-iot-and-electronics/
 link_label: View the course
-highlight: Taught
 images:
   - { src: "https://img-c.udemycdn.com/course/480x270/4051974_416f_2.jpg", alt: "ESP32: A Beginner's Guide to IoT and Electronics course cover" }
 order: 5
