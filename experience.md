@@ -28,13 +28,13 @@ lede: Three robotics roles across warehouse fleets and aerial swarms, plus earli
 
 ## Education
 
-**University of Maryland, College Park**, M.Eng. in Robotics, Fall 2026 – present. JN Tata Scholar.
+**University of Maryland, College Park**, M.Eng. in Robotics, Fall 2026 – present. [JN Tata Scholar](https://www.jntataendowment.org/).
 
 **Manipal Institute of Technology**, B.Tech. in Mechatronics, 2017 – 2021 (GPA 8.56 / 10).
 
 ## Recognition
 
-- **JN Tata Scholar**, supporting my M.Eng. in Robotics at the University of Maryland.
+- **[JN Tata Scholar](https://www.jntataendowment.org/)**, supporting my M.Eng. in Robotics at the University of Maryland.
 - **Gazebo terrain generator** is listed on the [official Gazebo site](https://gazebosim.org/docs/latest/projects_using_gazebo/).
 - **1st place**, Techfest IIT Bombay Covideate, 2020–21 ([coverage](https://timesofindia.indiatimes.com/education/news/manipal-students-bag-global-covid-19-challenge-prize/articleshow/77892430.cms)).
 - **3rd place**, India International Science Festival 2020, Swasth Bharath category.
